@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Qué es este repositorio
 
-Un sitio de una sola página (marketing) para **Nexus Eirene Wellness Hub LLC** — un programa de bienestar emocional **no médico** (Florida, EE.UU.). El entregable es el archivo estático `index.html`. Los PDFs y el docx referenciados abajo son **documentos fuente** de marca y contenido que viven **solo en local** (excluidos del repo vía `.gitignore`), no insumos de build.
+Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bienestar emocional **no médico** (Florida, EE.UU.). Tres páginas estáticas: `index.html` (landing), `privacidad.html` (Política de Privacidad), `terminos.html` (Términos y Condiciones). Los PDFs y el docx referenciados abajo son **documentos fuente** de marca y contenido que viven **solo en local** (excluidos del repo vía `.gitignore`), no insumos de build.
+
+⚠️ **Los documentos legales (`privacidad.html`, `terminos.html`) son borradores generados por IA**, no fueron redactados por un abogado. **Deben ser revisados por un abogado licenciado en Florida antes de considerarse vinculantes** — especialmente las cláusulas de limitación de responsabilidad, indemnidad, jurisdicción, y la referencia a Florida Statutes Title XXXII.
 
 - `index.html` — el sitio completo (HTML + `<style>` inline + 2 imágenes `data:image` embebidas). Sin paso de build, sin framework JS, sin gestor de paquetes, sin pruebas.
 - `Guia_Marca_Nexus_Eirene.pdf` — guía de marca v1.0 (junio 2026). Define paleta, tipografía y uso del logo. Las variables CSS en `index.html` corresponden a esta guía (ver tabla más abajo). **No introducir colores nuevos sin consultar el PDF.**
@@ -21,7 +23,7 @@ Abrir `index.html` directamente en un navegador, o servir la carpeta como estát
 
 - **Patrón bilingüe ES/EN.** Cada cadena visible para el usuario lleva el español como texto principal y la traducción al inglés inmediatamente después, envuelta en `<span class="en">…</span>`. Mantener este emparejamiento en cualquier copy nuevo. **Primero español, después inglés** — nunca al revés.
 - **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#lanzamiento`. Si se renombra un `<section id="…">`, hay que actualizar también el bloque `<nav class="navlinks">`.
-- **Todo el estilo va inline en un único bloque `<style>`** al inicio de `index.html`. No extraer a una hoja de estilos externa salvo petición explícita — el entregable de archivo único es intencional.
+- **El estilo va inline en un bloque `<style>` por página.** Cada página (`index.html`, `privacidad.html`, `terminos.html`) tiene su propio bloque autosuficiente. Las páginas legales duplican un subconjunto reducido del CSS de `index.html` (variables, nav, footer, tipografía); no extraer a stylesheet compartido sin petición explícita. Si cambias variables de marca, actualizar las tres páginas.
 - **Dos blobs `data:image` embebidos** viven aproximadamente en las líneas 165 y 179 (la marca y el logo del hero). Estas líneas son extremadamente largas; no intentar `Read` sobre ellas sin una ventana `offset`/`limit` ajustada, porque la herramienta rechaza chunks de ese tamaño. Usar `Grep` primero para localizar marcadores estructurales y luego leer alrededor.
 - **El copy legal/cumplimiento es estructural.** El encuadre como "programa de bienestar no médico", la aclaración de que no reemplaza atención clínica, la referencia al 911 y la línea de Florida Statutes Title XXXII son requisitos de posicionamiento del programa — no suavizarlos ni eliminarlos sin confirmación.
 - **El comentario sobre fecha de lanzamiento cerca de la línea 161** (`fecha de lanzamiento original (15 ago 2025) ya pasó`) documenta que el banner del hero se cambió de una fecha fija a "Inscripciones abiertas". Si piden volver a poner una fecha, confirmar cuál.
