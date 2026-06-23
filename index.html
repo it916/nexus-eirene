@@ -165,6 +165,20 @@ section{padding:64px 0}
 .lg p{font-size:13px;color:var(--topo)}
 .statutes{text-align:center;font-size:12px;color:var(--topo);margin-top:28px;font-style:italic;max-width:820px;margin-left:auto;margin-right:auto}
 
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq{background:var(--white);border:1px solid var(--arena);border-radius:12px;transition:border-color .2s ease}
+.faq[open]{border-color:var(--teal-deep)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--sans);font-size:15.5px;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:0 0 auto;width:11px;height:11px;border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);transform:rotate(45deg);transition:transform .2s ease;margin-top:-4px}
+.faq[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.faq summary:hover{color:var(--teal-deep)}
+.faq .faq-body{padding:0 22px 20px;font-size:14.5px;color:var(--ink);line-height:1.65}
+.faq .faq-body p{margin-bottom:10px}
+.faq .faq-body p:last-child{margin-bottom:0}
+.faq .faq-body strong{color:var(--gold-deep)}
+
 /* CONTACT */
 .contact .wrap{max-width:980px}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
@@ -399,6 +413,64 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
         <div class="step"><div class="num">02</div><h4><span class="es">Selección de plan</span><span class="en">Plan selection</span></h4><p><span class="es">Eliges el plan que mejor se adapta a tu tiempo, necesidades y presupuesto. Puedes cambiar cuando quieras.</span><span class="en">Pick the plan that best fits your time, needs, and budget. You can switch anytime.</span></p></div>
         <div class="step"><div class="num">03</div><h4><span class="es">Sesiones semanales</span><span class="en">Weekly sessions</span></h4><p><span class="es">1–2 sesiones por semana, individuales o grupales, presenciales o virtuales. Tú eliges el formato.</span><span class="en">1–2 sessions per week, individual or group, in-person or virtual. You choose the format.</span></p></div>
         <div class="step"><div class="num">04</div><h4><span class="es">Crecimiento continuo</span><span class="en">Continuous growth</span></h4><p><span class="es">Accedes a recursos, meditaciones y el apoyo continuo de facilitadores entrenados y tu comunidad.</span><span class="en">Access resources, meditations, and ongoing support from trained facilitators and your community.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><span class="es">Preguntas frecuentes</span><span class="en">Frequently asked questions</span></div>
+        <h2 class="sec-title"><span class="es">Tus dudas, resueltas</span><span class="en">Your questions, answered</span></h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq">
+          <summary><span class="es">¿Necesito un diagnóstico previo o estar en terapia para inscribirme?</span><span class="en">Do I need a prior diagnosis or to be in therapy to enroll?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">No. Nexus Eirene es un programa de bienestar emocional, <strong>no un servicio clínico</strong>. No necesitas diagnóstico, derivación médica ni estar bajo tratamiento previo. Está pensado para cualquier persona que quiera trabajar su salud emocional, manejar el estrés o construir hábitos sostenibles con apoyo de una comunidad.</span><span class="en">No. Nexus Eirene is an emotional wellness program, <strong>not a clinical service</strong>. You do not need a diagnosis, a medical referral, or prior treatment. It is designed for anyone who wants to work on their emotional health, manage stress, or build sustainable habits with the support of a community.</span></p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary><span class="es">¿Qué pasa si estoy en una crisis o emergencia de salud mental?</span><span class="en">What if I'm in a crisis or mental health emergency?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">En una emergencia, llama al <strong>911</strong> o acude al servicio de urgencias más cercano. Si estás en crisis pero no en peligro inmediato, también puedes llamar al <strong>988 (Suicide &amp; Crisis Lifeline)</strong>, disponible 24/7 en español e inglés.</span><span class="en">In an emergency, call <strong>911</strong> or go to the nearest emergency service. If you are in crisis but not in immediate danger, you can also call <strong>988 (Suicide &amp; Crisis Lifeline)</strong>, available 24/7 in Spanish and English.</span></p>
+            <p><span class="es">Nexus Eirene no es un servicio clínico ni de emergencia. Si necesitas evaluación, diagnóstico o medicación, consulta con un profesional de salud licenciado. Podemos acompañar tu bienestar emocional como complemento de esa atención.</span><span class="en">Nexus Eirene is not a clinical or emergency service. If you need evaluation, diagnosis, or medication, consult a licensed healthcare professional. We can support your emotional well-being as a complement to that care.</span></p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary><span class="es">¿Es confidencial lo que comparto en las sesiones?</span><span class="en">Is what I share in sessions confidential?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">Sí. Todo lo que compartes con facilitadores y otros participantes es estrictamente confidencial. Los facilitadores y el personal están comprometidos por escrito a no divulgar lo que se conversa en sesiones, materiales o comunicaciones.</span><span class="en">Yes. Everything you share with facilitators and other participants is strictly confidential. Facilitators and staff are bound in writing not to disclose what is discussed in sessions, materials, or communications.</span></p>
+            <p><span class="es">La única excepción es si existe riesgo inminente para la vida o integridad de una persona, o si una autoridad legalmente competente lo exige por orden judicial válida. El detalle completo está en nuestra <a href="privacidad.html" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Política de Privacidad</a>.</span><span class="en">The only exception is if there is imminent risk to a person's life or integrity, or if a legally competent authority requires it through a valid court order. Full details are in our <a href="privacidad.html" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Privacy Policy</a>.</span></p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary><span class="es">¿Puedo cambiar de plan o cancelar mi membresía cuando quiera?</span><span class="en">Can I change my plan or cancel my membership at any time?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">Sí. Puedes cambiar de plan en cualquier momento contactándonos a <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>. El cambio entra en vigor en el siguiente ciclo mensual.</span><span class="en">Yes. You can switch plans at any time by contacting us at <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>. The change takes effect in the next monthly cycle.</span></p>
+            <p><span class="es">Para cancelar, escríbenos o llámanos. La cancelación se aplica al final del ciclo mensual ya pagado, así que conservas el acceso hasta esa fecha. No hay penalización por cancelar.</span><span class="en">To cancel, write or call us. Cancellation applies at the end of the already-paid monthly cycle, so you keep access until that date. There is no cancellation penalty.</span></p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary><span class="es">¿Cómo califico para el plan PREP subsidiado?</span><span class="en">How do I qualify for the subsidized PREP plan?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">El plan PREP está disponible para participantes <strong>activos</strong> del programa PREP (Pre-Exposure Prophylaxis). Si ya estás en PREP, puedes solicitar el 100% de subsidio mencionándolo en el formulario de inscripción o contactando directamente a tu coordinador de PREP.</span><span class="en">The PREP plan is available to <strong>active</strong> participants of the PREP (Pre-Exposure Prophylaxis) program. If you are already in PREP, you can request the 100% subsidy by mentioning it on the enrollment form or by contacting your PREP coordinator directly.</span></p>
+            <p><span class="es">Validaremos elegibilidad con tu coordinador antes de activar el subsidio. Si tienes dudas, escríbenos a <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>.</span><span class="en">We will verify eligibility with your coordinator before activating the subsidy. If you have questions, email us at <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>.</span></p>
+          </div>
+        </details>
+
+        <details class="faq">
+          <summary><span class="es">¿En qué idioma se imparten las sesiones?</span><span class="en">In what language are sessions held?</span></summary>
+          <div class="faq-body">
+            <p><span class="es">Las sesiones se ofrecen en <strong>español</strong> y en <strong>inglés</strong>. Al inscribirte indicas tu idioma preferido (español, inglés o ambos) y te asignamos al grupo o facilitador correspondiente. Los materiales escritos también están disponibles en ambos idiomas.</span><span class="en">Sessions are offered in <strong>Spanish</strong> and <strong>English</strong>. When you enroll, you indicate your preferred language (Spanish, English, or both) and we match you with the corresponding group or facilitator. Written materials are also available in both languages.</span></p>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
