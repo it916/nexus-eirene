@@ -4,20 +4,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Qué es este repositorio
 
-Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bienestar emocional **no médico** (Florida, EE.UU.). Tres páginas estáticas: `index.html` (landing), `privacidad.html` (Política de Privacidad), `terminos.html` (Términos y Condiciones). Los PDFs y el docx referenciados abajo son **documentos fuente** de marca y contenido que viven **solo en local** (excluidos del repo vía `.gitignore`), no insumos de build.
+Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bienestar emocional **no médico** (Florida, EE.UU.). Cinco páginas estáticas: `index.html` (landing), `privacidad.html`, `terminos.html`, `404.html` (error page), `gracias.html` (Stripe success URL). En producción en **https://nexuseirene.com** vía GitHub Pages (repo `it916/nexus-eirene`, rama `main`). Los PDFs y el docx referenciados abajo son **documentos fuente** de marca y contenido que viven **solo en local** (excluidos del repo vía `.gitignore`), no insumos de build.
 
 ⚠️ **Los documentos legales (`privacidad.html`, `terminos.html`) son borradores generados por IA**, no fueron redactados por un abogado. **Deben ser revisados por un abogado licenciado en Florida antes de considerarse vinculantes** — especialmente las cláusulas de limitación de responsabilidad, indemnidad, jurisdicción, y la referencia a Florida Statutes Title XXXII.
 
-- `index.html` — el sitio completo (HTML + `<style>` inline + 2 imágenes `data:image` embebidas). Sin paso de build, sin framework JS, sin gestor de paquetes, sin pruebas.
-- `Guia_Marca_Nexus_Eirene.pdf` — guía de marca v1.0 (junio 2026). Define paleta, tipografía y uso del logo. Las variables CSS en `index.html` corresponden a esta guía (ver tabla más abajo). **No introducir colores nuevos sin consultar el PDF.**
-- `Nexus_Eirene_Contenido_Web.docx` — copy web bilingüe canónico. Cuando se pida editar texto del cuerpo, tratar este documento como la fuente.
-- `NE - Paquete_Ingreso.pdf` — paquete de ingreso/onboarding (consentimiento, acuerdo de membresía). Es el origen de los avisos legales del `index.html` (no médico, no diagnóstico, referencia a Florida Statutes Title XXXII, retención de registros por 2 años).
+**Archivos del repo:**
 
-**No es un repositorio git.**
+- `index.html` — landing principal con `<style>` inline + JSON-LD Schema.org + JS para lang toggle, hamburger menu, mobile CTA, form submission.
+- `privacidad.html`, `terminos.html` — páginas legales bilingües (cada una autosuficiente).
+- `404.html` — página de error custom (la sirve GitHub Pages para URLs inexistentes).
+- `gracias.html` — página de éxito tras Stripe checkout (Success URL).
+- `sunior-sanchez.jpg` — retrato del fundador (40 KB, 720×877).
+- `nuestro-espacio.jpg` — banner del espacio (520 KB, 2048×1152, 16:9). Pasa por cache-bust `?v=N` en el src.
+- `favicon.svg` — lotus dorado de la marca.
+- `og-image.svg` — 1200×630 para Open Graph (Twitter, Facebook, LinkedIn).
+- `robots.txt` + `sitemap.xml` — SEO, apuntan a las 3 páginas principales.
+
+**Documentos fuente (solo en local, en `.gitignore`):**
+
+- `Guia_Marca_Nexus_Eirene.pdf` — guía de marca v1.0 (junio 2026). Las variables CSS corresponden a esta guía (ver tabla más abajo). **No introducir colores nuevos sin consultar el PDF.**
+- `Nexus_Eirene_Contenido_Web.docx` — copy web bilingüe canónico.
+- `NE - Paquete_Ingreso.pdf` — paquete de ingreso/onboarding. Origen de los avisos legales (no médico, no diagnóstico, Florida Statutes Title XXXII, retención 2 años).
 
 ## Cómo "ejecutarlo"
 
-Abrir `index.html` directamente en un navegador, o servir la carpeta como estática (por ejemplo `python -m http.server` desde este directorio). No hay servidor de desarrollo, ni hot reload, ni paso de compilación.
+**Local:** servir la carpeta como estática (por ejemplo `python -m http.server 8080` — el puerto 8000 suele estar ocupado por otro proyecto del equipo). Sin servidor de desarrollo, hot reload ni paso de compilación.
+
+**Producción:** `git push origin main` despliega automáticamente a `https://nexuseirene.com` vía GitHub Pages (~1 min de rebuild). El `CNAME` en root contiene el dominio. HTTPS está activo (Let's Encrypt vía GitHub Pages).
 
 ## Convenciones de edición propias del sitio
 
@@ -26,13 +39,12 @@ Abrir `index.html` directamente en un navegador, o servir la carpeta como estát
   - Para `placeholder` de inputs/textarea: usa `data-placeholder-es="..." data-placeholder-en="..."`.
   - Para mensajes generados en JS (errores/éxito del form): usar el helper `txt(es, en)` que ya está definido en index.html.
   - `<title>` y `<meta name="description">` se actualizan dinámicamente desde el diccionario `meta` al inicio del bloque `<script>` de cada página. Si cambias el title de una página, edita ambas entradas.
-- **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#lanzamiento`. Si se renombra un `<section id="…">`, hay que actualizar también el bloque `<nav class="navlinks">`.
-- **El estilo va inline en un bloque `<style>` por página.** Cada página (`index.html`, `privacidad.html`, `terminos.html`) tiene su propio bloque autosuficiente. Las páginas legales duplican un subconjunto reducido del CSS de `index.html` (variables, nav, footer, tipografía); no extraer a stylesheet compartido sin petición explícita. Si cambias variables de marca, actualizar las tres páginas.
-- **Meta tags están duplicados en cada página.** Cualquier cambio de URL canónica, `og:image`, o tagline debe replicarse en las tres páginas. `favicon.svg` y `og-image.svg` son compartidos (un solo archivo en root).
-- **`og-image.svg` usa fuentes del sistema** (Georgia/Helvetica) en vez de Cinzel/Montserrat porque los crawlers de OG no cargan webfonts. Si necesitas una versión más fiel a la marca, generar un PNG 1200×630 con un diseñador. La SVG actual funciona en Twitter, Facebook, LinkedIn, Slack, Discord; WhatsApp puede mostrar fallback de texto sin imagen en algunos casos.
-- **Dos blobs `data:image` embebidos** viven aproximadamente en las líneas 165 y 179 (la marca y el logo del hero). Estas líneas son extremadamente largas; no intentar `Read` sobre ellas sin una ventana `offset`/`limit` ajustada, porque la herramienta rechaza chunks de ese tamaño. Usar `Grep` primero para localizar marcadores estructurales y luego leer alrededor.
-- **El copy legal/cumplimiento es estructural.** El encuadre como "programa de bienestar no médico", la aclaración de que no reemplaza atención clínica, la referencia al 911 y la línea de Florida Statutes Title XXXII son requisitos de posicionamiento del programa — no suavizarlos ni eliminarlos sin confirmación.
-- **El comentario sobre fecha de lanzamiento cerca de la línea 161** (`fecha de lanzamiento original (15 ago 2025) ya pasó`) documenta que el banner del hero se cambió de una fecha fija a "Inscripciones abiertas". Si piden volver a poner una fecha, confirmar cuál.
+- **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#faq`, `#contacto`, `#inscripcion`. El panel móvil hamburguesa replica los mismos anchors. Si se renombra un `<section id="…">`, hay que actualizar **el nav desktop + el panel hamburguesa + cualquier `data-plan`/`data-stripe-link` que apunte ahí**.
+- **El estilo va inline en un bloque `<style>` por página.** Las cinco páginas (`index`, `privacidad`, `terminos`, `404`, `gracias`) tienen su propio bloque autosuficiente. Las cuatro páginas no-landing duplican un subconjunto del CSS de `index.html` (variables, tipografía, nav, footer, focus rings). No extraer a stylesheet compartido sin petición explícita. **Si cambias variables de marca o el toggle de idioma, actualizar las cinco páginas.**
+- **Meta tags están duplicados en cada página.** Cualquier cambio de canonical URL, `og:image`, title o description debe replicarse. `favicon.svg`, `og-image.svg`, `nuestro-espacio.jpg`, `sunior-sanchez.jpg` son archivos compartidos en root.
+- **`og-image.svg` usa fuentes del sistema** (Georgia/Helvetica) en vez de Cinzel/Montserrat porque los crawlers de OG no cargan webfonts. Funciona en Twitter, Facebook, LinkedIn, Slack, Discord; WhatsApp puede caer a fallback de solo texto.
+- **El lotus inline en el divider** (entre hero y "Nosotros") es un SVG suelto dentro del HTML, no un archivo. Las mismas paths SVG aparecen también en `favicon.svg`, `og-image.svg`, `404.html`, `gracias.html` — si cambia el logo, actualizar en los cinco lugares.
+- **El copy legal/cumplimiento es estructural.** El encuadre como "programa de bienestar no médico", la aclaración de que no reemplaza atención clínica, la referencia al 911 y la línea de Florida Statutes Title XXXII son requisitos de posicionamiento del programa — no suavizarlos ni eliminarlos sin confirmación. Está repetido en hero, footer, aviso legal del index, checkbox de consentimiento del form, sección 2 de Términos y secciones 1+11 de Política.
 
 ## Paleta de marca (hex + reglas de uso)
 
@@ -86,6 +98,25 @@ Las dos familias ya están cargadas vía Google Fonts en el `<head>` de `index.h
 - `--sans: 'Montserrat', system-ui, sans-serif` — cuerpo, etiquetas, botones, formularios. Jost es alternativa aceptada por la guía.
 
 Jerarquía sugerida por la guía: título serif 24–32 pt · subtítulo sans 500 14–18 pt · cuerpo sans 400 10–12 pt · nota 8–9 pt.
+
+## Servicios externos del sitio
+
+| Servicio | Para qué | Notas |
+|---|---|---|
+| **GitHub Pages** | Hosting estático | Push a `main` → deploy automático. Dominio custom `nexuseirene.com` vía CNAME en root. |
+| **Cloudflare → Squarespace** | DNS autoritativo | NS legacy `ns-cloud-*.googledomains.com` apuntan a Squarespace (no a Google Cloud DNS). Los registros A se editan en Squarespace, no en Google. Ver memoria `reference_dns_topology` para detalle. |
+| **Web3Forms** | Procesa el envío del form de inscripción a `operations@nexuseirene.com` | Access key `b7b50f4d-2f7b-4b02-b937-ba1ed0f644c1` está en el HTML — es **pública por diseño** (identifica destinatario, no autentica), seguro versionarla. NO usar `redirect=false` como hidden field, rompe el parser (debe omitirse para que Web3Forms devuelva JSON). |
+| **Google Workspace** | Correo `@nexuseirene.com` | `info@`, `operations@`, etc. MX records ya configurados. |
+| **Mailgun** | Correo transaccional desde `mail.nexuseirene.com` | MX + DKIM ya configurados en DNS. |
+
+## Características clave del sitio (lo que ya funciona)
+
+- **Toggle bilingüe ES/EN** en el nav, persistido en `localStorage` (clave `ne-lang`), auto-detect del navegador en primera visita. Todas las cinco páginas comparten la misma preferencia. Cambia `<title>`, `<meta description>`, opciones de `<select>` (vía `data-bilingual` + `data-es`/`data-en`), placeholders (`data-placeholder-es`/`-en`) y mensajes inline del form.
+- **Hamburger menu en móvil**: panel lateral slide-in desde la derecha + backdrop oscuro + body scroll-lock + cierre por click backdrop/X/link/Esc. Aparece a ≤860px en index, ≤760px en legales (mismos breakpoints donde colapsa `.navlinks`).
+- **CTA flotante en móvil**: botón "Inscríbete" sticky bottom en ≤760px. `IntersectionObserver` lo oculta cuando el form (`#inscripcion`) entra en viewport.
+- **Formulario de inscripción**: envío vía `fetch` a Web3Forms, feedback inline (verde éxito / rojo error), honeypot anti-spam, pre-rellena el plan al venir de cards (`data-plan`).
+- **Skip-to-content link** + focus-visible rings turquesa (WCAG 2.4.7) en las cinco páginas.
+- **JSON-LD Schema.org** en `index.html` (`Organization` + `WebSite` + `FAQPage` con las 6 Q&A) y WebPage en las legales (`isPartOf` el WebSite).
 
 ## Stripe (preparación, no integración activa todavía)
 
