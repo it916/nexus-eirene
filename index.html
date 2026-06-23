@@ -137,8 +137,32 @@ section{padding:64px 0}
 .launch .eyebrow{color:#8fe0cf}
 .launch h2{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:#fff;margin:10px 0 8px;font-weight:500}
 .launch p{max-width:560px;margin:0 auto 22px;font-size:15px;color:#cdeae3}
-.launch .btn-primary{background:var(--gold);color:#3a2a0c}
-.launch .btn-primary:hover{background:#c19237}
+
+/* FORM · Inscripción */
+.enroll{max-width:760px;margin:32px auto 0;background:var(--white);border:1px solid var(--arena);border-radius:14px;padding:32px clamp(20px,4vw,40px)}
+.enroll .fhead{text-align:center;margin-bottom:24px}
+.enroll .fhead h3{font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:600;margin-bottom:6px}
+.enroll .fhead p{font-size:13.5px;color:var(--topo)}
+.enroll form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.enroll .full{grid-column:1 / -1}
+.enroll label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);margin-bottom:6px}
+.enroll label .req{color:var(--gold-deep)}
+.enroll input[type=text],.enroll input[type=email],.enroll input[type=tel],.enroll select,.enroll textarea{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--cream);border:1px solid var(--arena);border-radius:8px;padding:11px 12px;transition:border-color .15s ease,background .15s ease}
+.enroll input:focus,.enroll select:focus,.enroll textarea:focus{outline:none;border-color:var(--teal-deep);background:#fff}
+.enroll textarea{resize:vertical;min-height:90px;font-family:var(--sans)}
+.enroll select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%237A5A1C' d='M6 8L0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.enroll .consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--topo);line-height:1.5}
+.enroll .consent input{margin-top:3px;flex:0 0 auto;accent-color:var(--teal-deep)}
+.enroll .submit-row{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:6px}
+.enroll button[type=submit]{font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.02em;padding:13px 36px;border-radius:8px;border:none;background:var(--teal-deep);color:#fff;cursor:pointer;transition:background .2s ease,transform .15s ease}
+.enroll button[type=submit]:hover:not(:disabled){background:#1f5a51;transform:translateY(-1px)}
+.enroll button[type=submit]:disabled{background:var(--topo);cursor:wait;opacity:.7}
+.enroll .form-note{font-size:11.5px;color:var(--topo);text-align:center}
+.enroll .form-msg{grid-column:1 / -1;padding:14px 16px;border-radius:8px;font-size:14px;display:none}
+.enroll .form-msg.ok{display:block;background:#EAF5EF;border-left:4px solid var(--success,#3B7A57);color:#1f4a32}
+.enroll .form-msg.err{display:block;background:#FBEDEC;border-left:4px solid var(--error,#B23A2E);color:#7a261d}
+.enroll .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media(max-width:600px){.enroll form{grid-template-columns:1fr}}
 
 /* FOOTER */
 footer{padding:46px 0 40px;text-align:center}
@@ -169,7 +193,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <a href="#equipo">Equipo</a>
       <a href="#planes">Planes</a>
       <a href="#como">Cómo funciona</a>
-      <a class="btn btn-primary nav-cta" href="#lanzamiento">Inscríbete</a>
+      <a class="btn btn-primary nav-cta" href="#inscripcion">Inscríbete</a>
     </nav>
   </div>
 </header>
@@ -272,7 +296,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
             <li>Formato presencial y virtual</li>
             <li>Meditaciones y ejercicios de relajación</li>
           </ul>
-          <a class="btn btn-ghost" href="#lanzamiento">Elegir Básica</a>
+          <a class="btn btn-ghost" href="#inscripcion" data-plan="Básica">Elegir Básica</a>
         </div>
         <div class="plan feat">
           <span class="pop">⭐ Más popular</span>
@@ -286,7 +310,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
             <li>Seguimiento personalizado</li>
             <li>Acceso prioritario a recursos</li>
           </ul>
-          <a class="btn btn-primary" href="#lanzamiento">Elegir Premium</a>
+          <a class="btn btn-primary" href="#inscripcion" data-plan="Premium">Elegir Premium</a>
         </div>
         <div class="plan">
           <div class="pname">Corporativa · Corporate</div>
@@ -299,7 +323,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
             <li>Coordinador de cuenta dedicado</li>
             <li>Ideal para cultura de bienestar</li>
           </ul>
-          <a class="btn btn-ghost" href="#lanzamiento">Consultar</a>
+          <a class="btn btn-ghost" href="#inscripcion" data-plan="Corporativa">Consultar</a>
         </div>
       </div>
       <div class="prep">
@@ -348,8 +372,88 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
     <div class="launch">
       <div class="eyebrow">Inscripciones abiertas · Enrollment open</div>
       <h2>Empieza tu camino de bienestar</h2>
-      <p>Regístrate para acceder al programa y ser parte de la comunidad Nexus Eirene. <span style="opacity:.85">Register now to access the program and join our community.</span></p>
-      <a class="btn btn-primary" href="#">Inscríbete ahora</a>
+      <p>Completa el formulario y un coordinador se pondrá en contacto contigo en 24–48 h hábiles. <span style="opacity:.85">Fill out the form and a coordinator will contact you within 24–48 business hours.</span></p>
+    </div>
+
+    <div class="wrap">
+      <div class="enroll" id="inscripcion">
+        <div class="fhead">
+          <h3>Formulario de inscripción · Enrollment form</h3>
+          <p>Los campos marcados con <span style="color:var(--gold-deep)">*</span> son obligatorios. <span class="en" style="font-style:italic">Fields marked with * are required.</span></p>
+        </div>
+        <form id="enrollForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Nueva inscripción · Nexus Eirene">
+          <input type="hidden" name="from_name" value="Nexus Eirene · Sitio web">
+          <input type="hidden" name="redirect" value="false">
+          <div class="hp"><label>No llenar · Leave empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+
+          <div>
+            <label for="f-nombre">Nombre completo · Full name <span class="req">*</span></label>
+            <input id="f-nombre" type="text" name="nombre" required autocomplete="name">
+          </div>
+          <div>
+            <label for="f-email">Correo electrónico · Email <span class="req">*</span></label>
+            <input id="f-email" type="email" name="email" required autocomplete="email">
+          </div>
+          <div>
+            <label for="f-tel">Teléfono · Phone <span class="req">*</span></label>
+            <input id="f-tel" type="tel" name="telefono" required autocomplete="tel" placeholder="(305) 555-0123">
+          </div>
+          <div>
+            <label for="f-idioma">Idioma preferido · Preferred language <span class="req">*</span></label>
+            <select id="f-idioma" name="idioma" required>
+              <option value="Español">Español</option>
+              <option value="English">English</option>
+              <option value="Ambos">Ambos · Both</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-plan">Plan de interés · Plan of interest <span class="req">*</span></label>
+            <select id="f-plan" name="plan" required>
+              <option value="">— Selecciona un plan —</option>
+              <option value="Básica">Básica · Basic ($54.99/mes)</option>
+              <option value="Premium">Premium ($109/mes)</option>
+              <option value="Corporativa">Corporativa · Corporate ($209/empl./mes)</option>
+              <option value="PREP">PREP (100% subsidio solicitado)</option>
+              <option value="No estoy seguro">No estoy seguro · Not sure yet</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-modalidad">Modalidad preferida · Format <span class="req">*</span></label>
+            <select id="f-modalidad" name="modalidad" required>
+              <option value="">— Selecciona modalidad —</option>
+              <option value="Presencial">Presencial · In-person</option>
+              <option value="Virtual">Virtual</option>
+              <option value="Cualquiera">Cualquiera · Either</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="f-origen">¿Cómo nos conociste? · How did you find us?</label>
+            <select id="f-origen" name="origen">
+              <option value="">— Opcional · Optional —</option>
+              <option value="Recomendación">Recomendación de un amigo · Referral</option>
+              <option value="Redes sociales">Redes sociales · Social media</option>
+              <option value="Búsqueda en internet">Búsqueda en internet · Internet search</option>
+              <option value="PREP coordinator">Coordinador PREP · PREP coordinator</option>
+              <option value="Otro">Otro · Other</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="f-mensaje">Mensaje o preguntas · Message or questions</label>
+            <textarea id="f-mensaje" name="mensaje" placeholder="Cuéntanos qué te trae aquí o si tienes alguna pregunta. · Tell us what brings you here or if you have any questions."></textarea>
+          </div>
+          <div class="full consent">
+            <input id="f-consent" type="checkbox" name="consentimiento" value="Aceptado" required>
+            <label for="f-consent">He leído y acepto el aviso legal: Nexus Eirene es un programa de bienestar <strong>no médico</strong> que no diagnostica, trata enfermedades ni prescribe medicamentos. Acepto que un coordinador me contacte para completar mi inscripción. <span class="en" style="display:block;margin-top:4px">I have read and accept the legal notice: Nexus Eirene is a non-medical wellness program. I agree to be contacted by a coordinator to complete my enrollment.</span></label>
+          </div>
+          <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+          <div class="full submit-row">
+            <button type="submit" id="submitBtn">Enviar inscripción · Submit</button>
+            <p class="form-note">Tus datos son confidenciales y solo se usan para procesar tu inscripción.</p>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -364,6 +468,50 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
     </p>
   </div>
 </footer>
+
+<script>
+(function(){
+  document.querySelectorAll('a[data-plan]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var sel=document.getElementById('f-plan');
+      if(sel) sel.value=a.dataset.plan;
+    });
+  });
+
+  var form=document.getElementById('enrollForm');
+  if(!form) return;
+  var btn=document.getElementById('submitBtn');
+  var msg=document.getElementById('formMsg');
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    msg.className='form-msg';msg.textContent='';
+    if(!form.reportValidity()) return;
+    btn.disabled=true;
+    var originalLabel=btn.textContent;
+    btn.textContent='Enviando…';
+    try{
+      var data=new FormData(form);
+      var res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+      var json=await res.json().catch(function(){return{};});
+      if(res.ok&&json.success!==false){
+        msg.className='form-msg ok';
+        msg.innerHTML='<strong>¡Gracias!</strong> Recibimos tu inscripción. Un coordinador te contactará en 24–48 h hábiles. <span style="display:block;margin-top:4px;font-style:italic;opacity:.85">Thanks! We received your enrollment. A coordinator will contact you within 24–48 business hours.</span>';
+        form.reset();
+        msg.scrollIntoView({behavior:'smooth',block:'center'});
+      }else{
+        throw new Error(json.message||'Error');
+      }
+    }catch(err){
+      msg.className='form-msg err';
+      msg.innerHTML='<strong>No se pudo enviar.</strong> Revisa tu conexión e inténtalo de nuevo, o escríbenos directamente a operations@nexuseirene.com. <span style="display:block;margin-top:4px;font-style:italic;opacity:.85">Could not submit. Please retry or email operations@nexuseirene.com.</span>';
+    }finally{
+      btn.disabled=false;
+      btn.textContent=originalLabel;
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
