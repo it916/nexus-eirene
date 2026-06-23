@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · Nexus Eirene</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#256B61">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5F2EC; --white:#FFFFFF; --gold:#AC8129; --gold-deep:#7A5A1C;
+  --teal:#40A193; --teal-deep:#256B61; --ink:#1C2B3A; --topo:#5C5648;
+  --arena:#E8E2D5;
+  --serif:'Cinzel',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.en{color:var(--topo);font-style:italic;font-weight:400}
+body:not(.lang-en) .en{display:none!important}
+body.lang-en .es{display:none!important}
+body.lang-en .en{display:inline!important;color:inherit!important;font-style:normal!important;font-weight:inherit!important;font-size:inherit!important;margin:0!important}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;text-align:center}
+.box{max-width:520px}
+.lotus{width:88px;height:auto;margin:0 auto 28px;display:block;color:var(--gold);opacity:.9}
+.code{font-family:var(--serif);font-size:clamp(72px,16vw,128px);color:var(--gold-deep);letter-spacing:.04em;line-height:1;margin-bottom:8px}
+h1{font-family:var(--serif);font-size:clamp(22px,3.5vw,30px);color:var(--ink);font-weight:600;margin-bottom:14px}
+p{font-size:15.5px;color:var(--topo);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto}
+.cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:6px;border:1.5px solid transparent;transition:transform .15s ease,background .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal-deep);color:#fff}
+.btn-primary:hover{background:#1f5a51}
+.btn-ghost{background:transparent;border-color:var(--gold-deep);color:var(--gold-deep)}
+.btn-ghost:hover{background:rgba(122,90,28,.07)}
+
+footer{text-align:center;padding:24px 24px 32px;font-size:12px;color:var(--topo);border-top:1px solid var(--arena)}
+footer a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
+</style>
+</head>
+<body>
+
+<main>
+  <div class="box">
+    <svg class="lotus" viewBox="0 0 64 40" fill="currentColor">
+      <path d="M32 2c3 7 3 16 0 26-3-10-3-19 0-26z"/>
+      <path d="M30 30C22 26 15 24 6 26c6-7 14-9 23-6 0 4 .5 7 1 10z" opacity=".8"/>
+      <path d="M34 30c8-4 15-6 24-4-6-7-14-9-23-6 0 4-.5 7-1 10z" opacity=".8"/>
+      <path d="M28 31C22 23 18 17 16 9c8 3 13 9 14 17 0 2-1 4-2 5z" opacity=".6"/>
+      <path d="M36 31c6-8 10-14 12-22-8 3-13 9-14 17 0 2 1 4 2 5z" opacity=".6"/>
+    </svg>
+    <div class="code">404</div>
+    <h1>
+      <span class="es">Esta página se perdió en su camino</span>
+      <span class="en">This page lost its way</span>
+    </h1>
+    <p>
+      <span class="es">La URL que buscas no existe o ha sido movida. Regresa al inicio para seguir explorando Nexus Eirene.</span>
+      <span class="en">The URL you're looking for doesn't exist or has been moved. Head back home to keep exploring Nexus Eirene.</span>
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="/"><span class="es">Volver al inicio</span><span class="en">Back to home</span></a>
+      <a class="btn btn-ghost" href="/#contacto"><span class="es">Contactarnos</span><span class="en">Contact us</span></a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Nexus Eirene Wellness Hub LLC · Florida, EE.UU. ·
+  <a href="/privacidad.html"><span class="es">Privacidad</span><span class="en">Privacy</span></a> ·
+  <a href="/terminos.html"><span class="es">Términos</span><span class="en">Terms</span></a>
+</footer>
+
+<script>
+(function(){
+  var saved=null;
+  try{saved=localStorage.getItem('ne-lang');}catch(e){}
+  var initial=saved;
+  if(!initial){
+    var nav=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+    initial=nav.indexOf('en')===0?'en':'es';
+  }
+  document.documentElement.lang=initial;
+  if(initial==='en') document.body.classList.add('lang-en');
+})();
+</script>
+
+</body>
+</html>
