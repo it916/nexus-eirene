@@ -44,6 +44,15 @@ a:hover{border-bottom-color:var(--gold-deep)}
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 .en{color:var(--topo);font-style:italic;font-weight:400;font-size:.92em;display:block;margin-top:6px}
 
+/* LANGUAGE TOGGLE */
+body:not(.lang-en) .en{display:none!important}
+body.lang-en .es{display:none!important}
+body.lang-en .en{display:inline!important;color:inherit!important;font-style:normal!important;font-weight:inherit!important;font-size:inherit!important;margin:0!important}
+.lang-toggle{display:inline-flex;align-items:center;background:transparent;border:1px solid var(--arena);border-radius:20px;overflow:hidden;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.04em}
+.lang-toggle button{background:transparent;border:none;color:var(--topo);padding:5px 11px;cursor:pointer;transition:background .15s ease,color .15s ease;font:inherit}
+.lang-toggle button.active{background:var(--teal-deep);color:#fff}
+.lang-toggle button:not(.active):hover{color:var(--ink)}
+
 header.nav{position:sticky;top:0;z-index:50;background:rgba(245,242,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--arena)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1100px}
 .brand{display:flex;align-items:center;gap:10px}
@@ -90,154 +99,123 @@ footer .legalmini a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
   <div class="wrap">
     <a class="brand" href="index.html"><span class="bt">NEXUS EIRENE</span></a>
     <nav class="navlinks">
-      <a href="index.html#nosotros">Nosotros</a>
-      <a href="index.html#planes">Planes</a>
-      <a href="index.html#contacto">Contacto</a>
-      <a class="btn btn-primary" href="index.html#inscripcion">Inscríbete</a>
+      <a href="index.html#nosotros"><span class="es">Nosotros</span><span class="en">About</span></a>
+      <a href="index.html#planes"><span class="es">Planes</span><span class="en">Plans</span></a>
+      <a href="index.html#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+      <a class="btn btn-primary" href="index.html#inscripcion"><span class="es">Inscríbete</span><span class="en">Enroll</span></a>
     </nav>
+    <div class="lang-toggle" role="group" aria-label="Idioma · Language">
+      <button type="button" data-lang="es" class="active" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
 
 <main>
   <div class="wrap">
     <div class="doc-head">
-      <div class="eyebrow">Documento legal · Legal document</div>
-      <h1>Política de Privacidad</h1>
-      <p class="date">Vigente desde: 23 de junio de 2026 · Effective: June 23, 2026</p>
+      <div class="eyebrow"><span class="es">Documento legal</span><span class="en">Legal document</span></div>
+      <h1><span class="es">Política de Privacidad</span><span class="en">Privacy Policy</span></h1>
+      <p class="date"><span class="es">Vigente desde: 23 de junio de 2026</span><span class="en">Effective: June 23, 2026</span></p>
     </div>
 
     <article class="doc">
 
       <section>
-        <h2><span class="num">1.</span> Quiénes somos · Who we are</h2>
-        <p>Esta Política de Privacidad describe cómo <strong>Nexus Eirene Wellness Hub LLC</strong> ("Nexus Eirene", "nosotros") recoge, usa y protege la información personal de las personas que visitan nuestro sitio web o se inscriben en nuestro programa de bienestar emocional no médico.
-        <span class="en">This Privacy Policy describes how Nexus Eirene Wellness Hub LLC ("Nexus Eirene", "we", "us") collects, uses, and protects the personal information of people who visit our website or enroll in our non-medical emotional wellness program.</span></p>
-        <p>Somos una entidad domiciliada en el estado de Florida, Estados Unidos. Para cualquier consulta relacionada con privacidad, escríbenos a <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a>.
-        <span class="en">We are a Florida-domiciled entity. For any privacy-related inquiry, write to info@nexuseirene.com.</span></p>
+        <h2><span class="num">1.</span> <span class="es">Quiénes somos</span><span class="en">Who we are</span></h2>
+        <p><span class="es">Esta Política de Privacidad describe cómo <strong>Nexus Eirene Wellness Hub LLC</strong> ("Nexus Eirene", "nosotros") recoge, usa y protege la información personal de las personas que visitan nuestro sitio web o se inscriben en nuestro programa de bienestar emocional no médico.</span><span class="en">This Privacy Policy describes how <strong>Nexus Eirene Wellness Hub LLC</strong> ("Nexus Eirene", "we", "us") collects, uses, and protects the personal information of people who visit our website or enroll in our non-medical emotional wellness program.</span></p>
+        <p><span class="es">Somos una entidad domiciliada en el estado de Florida, Estados Unidos. Para cualquier consulta relacionada con privacidad, escríbenos a <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a>.</span><span class="en">We are a Florida-domiciled entity. For any privacy-related inquiry, write to <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a>.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">2.</span> Qué información recogemos · What we collect</h2>
-        <p>Solo recogemos lo estrictamente necesario para procesar tu inscripción y prestar el servicio:
-        <span class="en">We only collect what is strictly necessary to process your enrollment and deliver the service:</span></p>
+        <h2><span class="num">2.</span> <span class="es">Qué información recogemos</span><span class="en">What we collect</span></h2>
+        <p><span class="es">Solo recogemos lo estrictamente necesario para procesar tu inscripción y prestar el servicio:</span><span class="en">We only collect what is strictly necessary to process your enrollment and deliver the service:</span></p>
         <ul>
-          <li><strong>Datos de inscripción:</strong> nombre completo, correo electrónico, teléfono, idioma preferido, plan de interés, modalidad preferida, cómo nos conociste, mensaje que decidas compartir, y tu consentimiento al aviso legal.
-          <span class="en">Enrollment data: full name, email, phone, preferred language, plan of interest, preferred format, how you found us, any message you choose to share, and your consent to the legal notice.</span></li>
-          <li><strong>Datos de comunicación:</strong> los mensajes que nos envíes por correo, WhatsApp o teléfono.
-          <span class="en">Communication data: messages you send us by email, WhatsApp, or phone.</span></li>
-          <li><strong>Datos técnicos básicos:</strong> dirección IP, navegador y referente cuando visitas el sitio. No usamos cookies de seguimiento ni analítica de terceros en este momento.
-          <span class="en">Basic technical data: IP address, browser, and referrer when you visit the site. We do not currently use tracking cookies or third-party analytics.</span></li>
+          <li><span class="es"><strong>Datos de inscripción:</strong> nombre completo, correo electrónico, teléfono, idioma preferido, plan de interés, modalidad preferida, cómo nos conociste, mensaje que decidas compartir, y tu consentimiento al aviso legal.</span><span class="en"><strong>Enrollment data:</strong> full name, email, phone, preferred language, plan of interest, preferred format, how you found us, any message you choose to share, and your consent to the legal notice.</span></li>
+          <li><span class="es"><strong>Datos de comunicación:</strong> los mensajes que nos envíes por correo, WhatsApp o teléfono.</span><span class="en"><strong>Communication data:</strong> messages you send us by email, WhatsApp, or phone.</span></li>
+          <li><span class="es"><strong>Datos técnicos básicos:</strong> dirección IP, navegador y referente cuando visitas el sitio. No usamos cookies de seguimiento ni analítica de terceros en este momento.</span><span class="en"><strong>Basic technical data:</strong> IP address, browser, and referrer when you visit the site. We do not currently use tracking cookies or third-party analytics.</span></li>
         </ul>
-        <p>No solicitamos ni almacenamos información médica protegida, historiales clínicos, números de seguro social, datos financieros completos, ni información de salud sensible más allá del consentimiento general al aviso no médico.
-        <span class="en">We do not request or store protected health information, clinical records, Social Security numbers, full financial data, or sensitive health information beyond the general non-medical disclaimer consent.</span></p>
+        <p><span class="es">No solicitamos ni almacenamos información médica protegida, historiales clínicos, números de seguro social, datos financieros completos, ni información de salud sensible más allá del consentimiento general al aviso no médico.</span><span class="en">We do not request or store protected health information, clinical records, Social Security numbers, full financial data, or sensitive health information beyond the general non-medical disclaimer consent.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">3.</span> Cómo usamos tu información · How we use it</h2>
-        <p>Usamos tu información únicamente para:
-        <span class="en">We use your information solely to:</span></p>
+        <h2><span class="num">3.</span> <span class="es">Cómo usamos tu información</span><span class="en">How we use it</span></h2>
+        <p><span class="es">Usamos tu información únicamente para:</span><span class="en">We use your information solely to:</span></p>
         <ul>
-          <li>Procesar y responder a tu solicitud de inscripción.
-          <span class="en">Process and respond to your enrollment request.</span></li>
-          <li>Coordinar tus sesiones, plan y modalidad.
-          <span class="en">Coordinate your sessions, plan, and format.</span></li>
-          <li>Enviarte comunicaciones operativas (recordatorios de sesión, cambios de horario, materiales del programa).
-          <span class="en">Send you operational communications (session reminders, schedule changes, program materials).</span></li>
-          <li>Cumplir obligaciones legales aplicables en el Estado de Florida.
-          <span class="en">Comply with applicable legal obligations in the State of Florida.</span></li>
+          <li><span class="es">Procesar y responder a tu solicitud de inscripción.</span><span class="en">Process and respond to your enrollment request.</span></li>
+          <li><span class="es">Coordinar tus sesiones, plan y modalidad.</span><span class="en">Coordinate your sessions, plan, and format.</span></li>
+          <li><span class="es">Enviarte comunicaciones operativas (recordatorios de sesión, cambios de horario, materiales del programa).</span><span class="en">Send you operational communications (session reminders, schedule changes, program materials).</span></li>
+          <li><span class="es">Cumplir obligaciones legales aplicables en el Estado de Florida.</span><span class="en">Comply with applicable legal obligations in the State of Florida.</span></li>
         </ul>
-        <p>No usamos tu información para publicidad, no la vendemos, no la cedemos, y no la usamos para entrenar modelos de inteligencia artificial.
-        <span class="en">We do not use your information for advertising, we do not sell it, do not transfer it, and do not use it to train AI models.</span></p>
+        <p><span class="es">No usamos tu información para publicidad, no la vendemos, no la cedemos, y no la usamos para entrenar modelos de inteligencia artificial.</span><span class="en">We do not use your information for advertising, we do not sell it, do not transfer it, and do not use it to train AI models.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">4.</span> Con quién la compartimos · Who we share it with</h2>
-        <p>No vendemos ni compartimos tus datos con terceros con fines comerciales. Sí trabajamos con un número limitado de proveedores de servicio que procesan datos por nuestra cuenta, bajo sus propias políticas:
-        <span class="en">We do not sell or share your data with third parties for commercial purposes. We do work with a limited number of service providers that process data on our behalf, under their own policies:</span></p>
+        <h2><span class="num">4.</span> <span class="es">Con quién la compartimos</span><span class="en">Who we share it with</span></h2>
+        <p><span class="es">No vendemos ni compartimos tus datos con terceros con fines comerciales. Sí trabajamos con un número limitado de proveedores de servicio que procesan datos por nuestra cuenta, bajo sus propias políticas:</span><span class="en">We do not sell or share your data with third parties for commercial purposes. We do work with a limited number of service providers that process data on our behalf, under their own policies:</span></p>
         <ul>
-          <li><strong>Web3Forms</strong> — recibe y reenvía los envíos del formulario de inscripción a nuestro correo operativo.
-          <span class="en">Web3Forms — receives and forwards enrollment form submissions to our operations inbox.</span></li>
-          <li><strong>Google Workspace</strong> — gestiona nuestro correo electrónico corporativo.
-          <span class="en">Google Workspace — handles our corporate email.</span></li>
-          <li><strong>Mailgun</strong> — procesa correo transaccional desde el subdominio mail.nexuseirene.com cuando es necesario.
-          <span class="en">Mailgun — processes transactional email from the mail.nexuseirene.com subdomain when needed.</span></li>
-          <li><strong>GitHub Pages</strong> — aloja este sitio web; recibe peticiones HTTP básicas para servir el contenido.
-          <span class="en">GitHub Pages — hosts this website; receives basic HTTP requests to serve the content.</span></li>
+          <li><span class="es"><strong>Web3Forms</strong> — recibe y reenvía los envíos del formulario de inscripción a nuestro correo operativo.</span><span class="en"><strong>Web3Forms</strong> — receives and forwards enrollment form submissions to our operations inbox.</span></li>
+          <li><span class="es"><strong>Google Workspace</strong> — gestiona nuestro correo electrónico corporativo.</span><span class="en"><strong>Google Workspace</strong> — handles our corporate email.</span></li>
+          <li><span class="es"><strong>Mailgun</strong> — procesa correo transaccional desde el subdominio mail.nexuseirene.com cuando es necesario.</span><span class="en"><strong>Mailgun</strong> — processes transactional email from the mail.nexuseirene.com subdomain when needed.</span></li>
+          <li><span class="es"><strong>GitHub Pages</strong> — aloja este sitio web; recibe peticiones HTTP básicas para servir el contenido.</span><span class="en"><strong>GitHub Pages</strong> — hosts this website; receives basic HTTP requests to serve the content.</span></li>
         </ul>
-        <p>También podemos divulgar información si una autoridad legalmente competente lo requiere mediante orden judicial válida.
-        <span class="en">We may also disclose information if a legally competent authority requires it through a valid court order.</span></p>
+        <p><span class="es">También podemos divulgar información si una autoridad legalmente competente lo requiere mediante orden judicial válida.</span><span class="en">We may also disclose information if a legally competent authority requires it through a valid court order.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">5.</span> Cuánto tiempo la conservamos · Retention</h2>
-        <p>Conservamos tu información mientras tu membresía esté activa y por un periodo máximo de <strong>dos (2) años</strong> después del fin de la misma, salvo obligación legal de conservación más prolongada. Pasado ese plazo, los registros son eliminados o anonimizados.
-        <span class="en">We retain your information while your membership is active and for a maximum period of two (2) years after it ends, unless a longer legal retention obligation applies. After that period, records are deleted or anonymized.</span></p>
+        <h2><span class="num">5.</span> <span class="es">Cuánto tiempo la conservamos</span><span class="en">Retention</span></h2>
+        <p><span class="es">Conservamos tu información mientras tu membresía esté activa y por un periodo máximo de <strong>dos (2) años</strong> después del fin de la misma, salvo obligación legal de conservación más prolongada. Pasado ese plazo, los registros son eliminados o anonimizados.</span><span class="en">We retain your information while your membership is active and for a maximum period of <strong>two (2) years</strong> after it ends, unless a longer legal retention obligation applies. After that period, records are deleted or anonymized.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">6.</span> Tus derechos · Your rights</h2>
-        <p>Puedes ejercer en cualquier momento los siguientes derechos sobre tu información:
-        <span class="en">You may exercise the following rights over your information at any time:</span></p>
+        <h2><span class="num">6.</span> <span class="es">Tus derechos</span><span class="en">Your rights</span></h2>
+        <p><span class="es">Puedes ejercer en cualquier momento los siguientes derechos sobre tu información:</span><span class="en">You may exercise the following rights over your information at any time:</span></p>
         <ul>
-          <li><strong>Acceso</strong> — solicitar copia de los datos que tenemos sobre ti.
-          <span class="en">Access — request a copy of the data we hold about you.</span></li>
-          <li><strong>Rectificación</strong> — pedir que corrijamos información inexacta.
-          <span class="en">Rectification — ask us to correct inaccurate information.</span></li>
-          <li><strong>Supresión</strong> — solicitar la eliminación de tus datos, sujeta a obligaciones legales de conservación.
-          <span class="en">Deletion — request erasure of your data, subject to legal retention obligations.</span></li>
-          <li><strong>Oposición</strong> — oponerte a tratamientos específicos.
-          <span class="en">Objection — object to specific processing.</span></li>
-          <li><strong>Portabilidad</strong> — recibir tus datos en formato legible para llevarlos a otro proveedor.
-          <span class="en">Portability — receive your data in a readable format to take it elsewhere.</span></li>
+          <li><span class="es"><strong>Acceso</strong> — solicitar copia de los datos que tenemos sobre ti.</span><span class="en"><strong>Access</strong> — request a copy of the data we hold about you.</span></li>
+          <li><span class="es"><strong>Rectificación</strong> — pedir que corrijamos información inexacta.</span><span class="en"><strong>Rectification</strong> — ask us to correct inaccurate information.</span></li>
+          <li><span class="es"><strong>Supresión</strong> — solicitar la eliminación de tus datos, sujeta a obligaciones legales de conservación.</span><span class="en"><strong>Deletion</strong> — request erasure of your data, subject to legal retention obligations.</span></li>
+          <li><span class="es"><strong>Oposición</strong> — oponerte a tratamientos específicos.</span><span class="en"><strong>Objection</strong> — object to specific processing.</span></li>
+          <li><span class="es"><strong>Portabilidad</strong> — recibir tus datos en formato legible para llevarlos a otro proveedor.</span><span class="en"><strong>Portability</strong> — receive your data in a readable format to take it elsewhere.</span></li>
         </ul>
-        <p>Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a> indicando claramente tu solicitud. Responderemos en un plazo razonable, normalmente dentro de los 30 días.
-        <span class="en">To exercise any of these rights, write to info@nexuseirene.com clearly stating your request. We will respond within a reasonable timeframe, typically within 30 days.</span></p>
+        <p><span class="es">Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a> indicando claramente tu solicitud. Responderemos en un plazo razonable, normalmente dentro de los 30 días.</span><span class="en">To exercise any of these rights, write to <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a> clearly stating your request. We will respond within a reasonable timeframe, typically within 30 days.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">7.</span> Confidencialidad · Confidentiality</h2>
-        <p>Toda la información compartida con Nexus Eirene es estrictamente confidencial. Los facilitadores y el personal del programa están comprometidos por escrito a no divulgar lo compartido en sesiones, materiales o comunicaciones.
-        <span class="en">All information shared with Nexus Eirene is strictly confidential. Facilitators and program staff are bound in writing not to disclose what is shared in sessions, materials, or communications.</span></p>
-        <p>La confidencialidad puede romperse únicamente cuando exista riesgo inminente para la vida o integridad de una persona, o cuando una autoridad legalmente competente lo exija por orden judicial válida.
-        <span class="en">Confidentiality may only be broken when there is imminent risk to a person's life or integrity, or when a legally competent authority requires it through a valid court order.</span></p>
+        <h2><span class="num">7.</span> <span class="es">Confidencialidad</span><span class="en">Confidentiality</span></h2>
+        <p><span class="es">Toda la información compartida con Nexus Eirene es estrictamente confidencial. Los facilitadores y el personal del programa están comprometidos por escrito a no divulgar lo compartido en sesiones, materiales o comunicaciones.</span><span class="en">All information shared with Nexus Eirene is strictly confidential. Facilitators and program staff are bound in writing not to disclose what is shared in sessions, materials, or communications.</span></p>
+        <p><span class="es">La confidencialidad puede romperse únicamente cuando exista riesgo inminente para la vida o integridad de una persona, o cuando una autoridad legalmente competente lo exija por orden judicial válida.</span><span class="en">Confidentiality may only be broken when there is imminent risk to a person's life or integrity, or when a legally competent authority requires it through a valid court order.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">8.</span> Seguridad · Security</h2>
-        <p>Aplicamos medidas técnicas y organizativas razonables para proteger tu información: control de acceso, cifrado en tránsito (HTTPS), almacenamiento en servicios reconocidos, y entrenamiento del personal en buenas prácticas. Sin embargo, ningún sistema en internet es 100% seguro y no podemos garantizar seguridad absoluta.
-        <span class="en">We apply reasonable technical and organizational measures to protect your information: access control, encryption in transit (HTTPS), storage in reputable services, and staff training on best practices. However, no internet system is 100% secure and we cannot guarantee absolute security.</span></p>
+        <h2><span class="num">8.</span> <span class="es">Seguridad</span><span class="en">Security</span></h2>
+        <p><span class="es">Aplicamos medidas técnicas y organizativas razonables para proteger tu información: control de acceso, cifrado en tránsito (HTTPS), almacenamiento en servicios reconocidos, y entrenamiento del personal en buenas prácticas. Sin embargo, ningún sistema en internet es 100% seguro y no podemos garantizar seguridad absoluta.</span><span class="en">We apply reasonable technical and organizational measures to protect your information: access control, encryption in transit (HTTPS), storage in reputable services, and staff training on best practices. However, no internet system is 100% secure and we cannot guarantee absolute security.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">9.</span> Privacidad de menores · Children's privacy</h2>
-        <p>Nuestros servicios están dirigidos a personas mayores de 18 años. No recogemos intencionadamente información de menores. Si crees que un menor nos ha proporcionado datos sin consentimiento de su tutor, contáctanos para eliminarlos.
-        <span class="en">Our services are directed at people 18 years and older. We do not knowingly collect information from minors. If you believe a minor has provided us data without guardian consent, contact us to have it removed.</span></p>
+        <h2><span class="num">9.</span> <span class="es">Privacidad de menores</span><span class="en">Children's privacy</span></h2>
+        <p><span class="es">Nuestros servicios están dirigidos a personas mayores de 18 años. No recogemos intencionadamente información de menores. Si crees que un menor nos ha proporcionado datos sin consentimiento de su tutor, contáctanos para eliminarlos.</span><span class="en">Our services are directed at people 18 years and older. We do not knowingly collect information from minors. If you believe a minor has provided us data without guardian consent, contact us to have it removed.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">10.</span> Cambios a esta política · Changes</h2>
-        <p>Podemos actualizar esta Política de Privacidad. Publicaremos la versión vigente en esta misma URL con su fecha de vigencia. Cambios materiales serán notificados también por correo a las personas con membresía activa.
-        <span class="en">We may update this Privacy Policy. The current version will be posted at this URL with its effective date. Material changes will also be notified by email to active members.</span></p>
+        <h2><span class="num">10.</span> <span class="es">Cambios a esta política</span><span class="en">Changes</span></h2>
+        <p><span class="es">Podemos actualizar esta Política de Privacidad. Publicaremos la versión vigente en esta misma URL con su fecha de vigencia. Cambios materiales serán notificados también por correo a las personas con membresía activa.</span><span class="en">We may update this Privacy Policy. The current version will be posted at this URL with its effective date. Material changes will also be notified by email to active members.</span></p>
       </section>
 
       <section>
-        <h2><span class="num">11.</span> Marco regulatorio · Regulatory framework</h2>
-        <p>Esta política se interpreta conforme a las leyes del Estado de Florida, Estados Unidos, incluyendo cuando aplique los Florida Statutes Title XXXII y las regulaciones aplicables a servicios de bienestar no médico, así como la Florida Information Protection Act (FIPA) en caso de incidente de seguridad.
-        <span class="en">This policy is governed by the laws of the State of Florida, USA, including where applicable Florida Statutes Title XXXII and the regulations applicable to non-medical wellness services, as well as the Florida Information Protection Act (FIPA) in the event of a security incident.</span></p>
+        <h2><span class="num">11.</span> <span class="es">Marco regulatorio</span><span class="en">Regulatory framework</span></h2>
+        <p><span class="es">Esta política se interpreta conforme a las leyes del Estado de Florida, Estados Unidos, incluyendo cuando aplique los Florida Statutes Title XXXII y las regulaciones aplicables a servicios de bienestar no médico, así como la Florida Information Protection Act (FIPA) en caso de incidente de seguridad.</span><span class="en">This policy is governed by the laws of the State of Florida, USA, including where applicable Florida Statutes Title XXXII and the regulations applicable to non-medical wellness services, as well as the Florida Information Protection Act (FIPA) in the event of a security incident.</span></p>
         <div class="callout">
-          <p><strong>Recordatorio · Reminder.</strong> Nexus Eirene es un programa de bienestar no médico. No diagnosticamos, no tratamos enfermedades ni prescribimos medicamentos. En caso de emergencia llama al 911.
-          <span class="en">Nexus Eirene is a non-medical wellness program. We do not diagnose, treat illness, or prescribe medication. In an emergency call 911.</span></p>
+          <p><span class="es"><strong>Recordatorio.</strong> Nexus Eirene es un programa de bienestar no médico. No diagnosticamos, no tratamos enfermedades ni prescribimos medicamentos. En caso de emergencia llama al 911.</span><span class="en"><strong>Reminder.</strong> Nexus Eirene is a non-medical wellness program. We do not diagnose, treat illness, or prescribe medication. In an emergency call 911.</span></p>
         </div>
       </section>
 
       <section>
-        <h2><span class="num">12.</span> Contacto · Contact</h2>
-        <p>Para cualquier pregunta sobre privacidad o para ejercer tus derechos:
-        <span class="en">For any privacy question or to exercise your rights:</span></p>
+        <h2><span class="num">12.</span> <span class="es">Contacto</span><span class="en">Contact</span></h2>
+        <p><span class="es">Para cualquier pregunta sobre privacidad o para ejercer tus derechos:</span><span class="en">For any privacy question or to exercise your rights:</span></p>
         <p>Nexus Eirene Wellness Hub LLC<br>
-        Florida, Estados Unidos<br>
+        <span class="es">Florida, Estados Unidos</span><span class="en">Florida, USA</span><br>
         Email: <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a><br>
-        Teléfono: <a href="tel:+17869813006">(786) 981-3006</a></p>
+        <span class="es">Teléfono</span><span class="en">Phone</span>: <a href="tel:+17869813006">(786) 981-3006</a></p>
       </section>
 
     </article>
@@ -247,18 +225,57 @@ footer .legalmini a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
 <footer>
   <div class="wrap">
     <div class="fbrand">Nexus Eirene</div>
-    <div class="ftag">Conéctate contigo mismo · Find your calm</div>
+    <div class="ftag"><span class="es">Conéctate contigo mismo</span><span class="en">Find your calm</span></div>
     <p class="legalmini">
-      <a href="privacidad.html">Política de Privacidad</a>
+      <a href="privacidad.html"><span class="es">Política de Privacidad</span><span class="en">Privacy Policy</span></a>
       &nbsp;·&nbsp;
-      <a href="terminos.html">Términos y Condiciones</a>
+      <a href="terminos.html"><span class="es">Términos y Condiciones</span><span class="en">Terms and Conditions</span></a>
     </p>
     <p class="legalmini" style="margin-top:14px">
-      Nexus Eirene Wellness Hub LLC · Florida, Estados Unidos · Programa de bienestar no médico<br>
-      © 2025 Todos los derechos reservados · All rights reserved
+      <span class="es">Nexus Eirene Wellness Hub LLC · Florida, Estados Unidos · Programa de bienestar no médico</span><span class="en">Nexus Eirene Wellness Hub LLC · Florida, USA · Non-medical wellness program</span><br>
+      <span class="es">© 2025 Todos los derechos reservados</span><span class="en">© 2025 All rights reserved</span>
     </p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var STORAGE_KEY='ne-lang';
+  var meta={
+    es:{title:'Política de Privacidad · Nexus Eirene',description:'Política de Privacidad de Nexus Eirene Wellness Hub LLC — cómo recogemos, usamos y protegemos tu información personal.'},
+    en:{title:'Privacy Policy · Nexus Eirene',description:'Privacy Policy of Nexus Eirene Wellness Hub LLC — how we collect, use, and protect your personal information.'}
+  };
+  function applyLang(lang){
+    document.documentElement.lang=lang;
+    document.body.classList.toggle('lang-en',lang==='en');
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){
+      var active=b.dataset.lang===lang;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-pressed',active?'true':'false');
+    });
+    if(meta[lang]){
+      document.title=meta[lang].title;
+      var d=document.querySelector('meta[name="description"]');
+      if(d) d.setAttribute('content',meta[lang].description);
+    }
+  }
+  var saved=null;
+  try{saved=localStorage.getItem(STORAGE_KEY);}catch(e){}
+  var initial=saved;
+  if(!initial){
+    var nav=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+    initial=nav.indexOf('en')===0?'en':'es';
+  }
+  applyLang(initial);
+  document.querySelectorAll('.lang-toggle button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var lang=b.dataset.lang;
+      applyLang(lang);
+      try{localStorage.setItem(STORAGE_KEY,lang);}catch(e){}
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

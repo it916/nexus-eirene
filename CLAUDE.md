@@ -21,7 +21,11 @@ Abrir `index.html` directamente en un navegador, o servir la carpeta como estát
 
 ## Convenciones de edición propias del sitio
 
-- **Patrón bilingüe ES/EN.** Cada cadena visible para el usuario lleva el español como texto principal y la traducción al inglés inmediatamente después, envuelta en `<span class="en">…</span>`. Mantener este emparejamiento en cualquier copy nuevo. **Primero español, después inglés** — nunca al revés.
+- **Patrón bilingüe ES/EN con toggle.** Cada cadena visible para el usuario va envuelta en **dos spans**: `<span class="es">Texto</span><span class="en">Text</span>`. Por defecto se ve solo español; el botón ES/EN del nav cambia a inglés (clase `lang-en` en `<body>`). La preferencia se persiste en `localStorage` con clave `ne-lang` y se auto-detecta del navegador en primera visita. **No usar el patrón antiguo de texto-plano-más-`<span class="en">`-suelto** — ese formato no oculta el español al toggle.
+  - Para `<select>`: usa atributos `data-es="..." data-en="..."` en cada `<option>` y `data-bilingual` en el select; el JS los intercambia.
+  - Para `placeholder` de inputs/textarea: usa `data-placeholder-es="..." data-placeholder-en="..."`.
+  - Para mensajes generados en JS (errores/éxito del form): usar el helper `txt(es, en)` que ya está definido en index.html.
+  - `<title>` y `<meta name="description">` se actualizan dinámicamente desde el diccionario `meta` al inicio del bloque `<script>` de cada página. Si cambias el title de una página, edita ambas entradas.
 - **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#lanzamiento`. Si se renombra un `<section id="…">`, hay que actualizar también el bloque `<nav class="navlinks">`.
 - **El estilo va inline en un bloque `<style>` por página.** Cada página (`index.html`, `privacidad.html`, `terminos.html`) tiene su propio bloque autosuficiente. Las páginas legales duplican un subconjunto reducido del CSS de `index.html` (variables, nav, footer, tipografía); no extraer a stylesheet compartido sin petición explícita. Si cambias variables de marca, actualizar las tres páginas.
 - **Meta tags están duplicados en cada página.** Cualquier cambio de URL canónica, `og:image`, o tagline debe replicarse en las tres páginas. `favicon.svg` y `og-image.svg` son compartidos (un solo archivo en root).
