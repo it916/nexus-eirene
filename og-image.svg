@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F5F2EC"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#E8E2D5" stroke-width="1.5" rx="20"/>
+
+  <g transform="translate(600, 220) scale(3.4) translate(-32, -20)" fill="#AC8129">
+    <path d="M32 2c3 7 3 16 0 26-3-10-3-19 0-26z"/>
+    <path d="M30 30C22 26 15 24 6 26c6-7 14-9 23-6 0 4 .5 7 1 10z" opacity=".85"/>
+    <path d="M34 30c8-4 15-6 24-4-6-7-14-9-23-6 0 4-.5 7-1 10z" opacity=".85"/>
+    <path d="M28 31C22 23 18 17 16 9c8 3 13 9 14 17 0 2-1 4-2 5z" opacity=".65"/>
+    <path d="M36 31c6-8 10-14 12-22-8 3-13 9-14 17 0 2 1 4 2 5z" opacity=".65"/>
+  </g>
+
+  <text x="600" y="380" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" fill="#7A5A1C" letter-spacing="8">NEXUS EIRENE</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="500" fill="#256B61" letter-spacing="14">WELLNESS HUB</text>
+
+  <line x1="500" y1="475" x2="700" y2="475" stroke="#AC8129" stroke-width="1.5"/>
+
+  <text x="600" y="520" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" font-style="italic" fill="#5C5648">Conéctate contigo mismo · Find your calm</text>
+  <text x="600" y="565" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#7A5A1C" letter-spacing="4">BIENESTAR EMOCIONAL · FLORIDA, EE.UU.</text>
+</svg>
