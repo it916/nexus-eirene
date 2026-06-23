@@ -87,6 +87,24 @@ Las dos familias ya están cargadas vía Google Fonts en el `<head>` de `index.h
 
 Jerarquía sugerida por la guía: título serif 24–32 pt · subtítulo sans 500 14–18 pt · cuerpo sans 400 10–12 pt · nota 8–9 pt.
 
+## Stripe (preparación, no integración activa todavía)
+
+Los botones de Básica y Premium en `#planes` tienen un atributo `data-stripe-link=""` vacío. Hay JS en el bloque `<script>` al final de `index.html` (busca `Stripe Payment Links`) que, si detecta una URL `https://...` en ese atributo, sobreescribe el `href` del botón y lo abre en pestaña nueva con `target="_blank"`. Si el atributo está vacío, el botón mantiene `href="#inscripcion"` y va al formulario.
+
+**Para activar Stripe:**
+1. En Stripe Dashboard, crear productos: `Básica · $54.99/mes` y `Premium · $109/mes` (modo Subscription, billing monthly).
+2. Generar Payment Link para cada producto. En la configuración del Payment Link, poner como Success URL: `https://nexuseirene.com/gracias.html`.
+3. En `index.html`, pegar la URL de cada Payment Link en el `data-stripe-link=""` del botón correspondiente:
+   - `<a ... data-plan="Básica" data-stripe-link="">` → pegar URL de Básica
+   - `<a ... data-plan="Premium" data-stripe-link="">` → pegar URL de Premium
+4. **Corporativa** y **PREP** quedan en flujo de formulario (no Stripe directo) — Corporativa necesita consulta, PREP necesita verificación de elegibilidad.
+
+`gracias.html` ya existe como la página de éxito tras Stripe checkout. La Política de Privacidad menciona Stripe como procesador (sección 4) y los Términos en la sección 5 con link a `stripe.com/legal/consumer`.
+
+## Consentimiento de marketing (TCPA)
+
+El formulario de inscripción tiene un segundo checkbox debajo del consentimiento legal: `name="marketing_consent"`, no es `required`. Si el usuario lo marca, Web3Forms incluye "Aceptado" en el campo `marketing_consent` del email enviado a `operations@nexuseirene.com`. El texto cumple con TCPA: opt-in expreso, no marcado por defecto, frecuencia, método de opt-out (STOP / unsubscribe link), "message and data rates may apply", y nota de "no es condición para inscribirse".
+
 ## Precios y planes (editados con frecuencia)
 
 Tres planes + una variante subsidiada viven en la sección `#planes`: Básica `$54.99/mes`, Premium `$109/mes` (marcado `feat` / "Más popular"), Corporativa `$209/empl./mes` (mínimo 5 empleados), y el plan PREP (100% de subsidio para participantes activos de PREP). Al actualizar precios, modificar tanto el elemento `.price` como cualquier copy narrativo que cite la cifra.
