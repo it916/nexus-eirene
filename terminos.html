@@ -84,6 +84,24 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(245,242,236,.92);bac
 .btn-primary{background:var(--teal-deep);color:#fff;border:none}
 .btn-primary:hover{background:#1f5a51;transform:translateY(-1px)}
 
+/* Hamburger + mobile panel */
+.hamburger{display:none;width:40px;height:40px;background:transparent;border:1px solid var(--arena);border-radius:8px;cursor:pointer;align-items:center;justify-content:center;padding:0;color:var(--ink);transition:border-color .15s ease,color .15s ease}
+.hamburger:hover{border-color:var(--teal-deep);color:var(--teal-deep)}
+.hamburger svg{width:20px;height:20px}
+.panel-backdrop{position:fixed;inset:0;background:rgba(28,43,58,.45);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.panel-backdrop.open{opacity:1;pointer-events:auto}
+.mobile-panel{position:fixed;top:0;right:0;width:min(85vw,320px);height:100vh;background:var(--cream);z-index:100;padding:64px 24px 28px;transform:translateX(105%);transition:transform .3s cubic-bezier(.2,.7,.2,1);overflow-y:auto;display:flex;flex-direction:column;gap:4px;border-left:1px solid var(--arena);box-shadow:-12px 0 32px rgba(28,43,58,.18)}
+.mobile-panel.open{transform:translateX(0)}
+.mobile-panel a{display:block;padding:14px 12px;font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);letter-spacing:.02em;border-radius:8px;border:none;border-bottom:1px solid var(--arena);transition:background .15s ease,color .15s ease}
+.mobile-panel a:hover{background:rgba(64,161,147,.08);color:var(--teal-deep);border-bottom-color:var(--arena)}
+.mobile-panel a.cta-link{background:var(--teal-deep);color:#fff;text-align:center;margin-top:14px;border-bottom:none}
+.mobile-panel a.cta-link:hover{background:#1f5a51;color:#fff}
+.mobile-panel-close{position:absolute;top:14px;right:14px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--topo);border-radius:6px;transition:background .15s ease,color .15s ease}
+.mobile-panel-close:hover{background:rgba(28,43,58,.06);color:var(--ink)}
+.mobile-panel-close svg{width:20px;height:20px}
+body.no-scroll{overflow:hidden}
+@media(max-width:760px){.hamburger{display:inline-flex}}
+
 main{padding:56px 0 72px}
 .doc-head{text-align:center;margin-bottom:36px}
 .doc-head .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-deep);font-weight:600}
@@ -134,8 +152,23 @@ footer .legalmini a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
       <button type="button" data-lang="es" class="active" aria-pressed="true">ES</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
+    <button class="hamburger" type="button" aria-label="Abrir menú · Open menu" aria-expanded="false" aria-controls="mobilePanel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </header>
+
+<div class="panel-backdrop" aria-hidden="true"></div>
+<nav class="mobile-panel" id="mobilePanel" aria-label="Menú móvil · Mobile menu">
+  <button class="mobile-panel-close" type="button" aria-label="Cerrar menú · Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+  <a href="index.html#nosotros"><span class="es">Nosotros</span><span class="en">About</span></a>
+  <a href="index.html#planes"><span class="es">Planes</span><span class="en">Plans</span></a>
+  <a href="index.html#faq"><span class="es">Preguntas frecuentes</span><span class="en">FAQ</span></a>
+  <a href="index.html#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+  <a class="cta-link" href="index.html#inscripcion"><span class="es">Inscríbete</span><span class="en">Enroll</span></a>
+</nav>
 
 <main id="content">
   <div class="wrap">
@@ -279,6 +312,22 @@ footer .legalmini a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
 </footer>
 
 <script>
+(function(){
+  var btn=document.querySelector('.hamburger');
+  var panel=document.getElementById('mobilePanel');
+  var backdrop=document.querySelector('.panel-backdrop');
+  var closeBtn=document.querySelector('.mobile-panel-close');
+  if(btn&&panel&&backdrop){
+    var open=function(){panel.classList.add('open');backdrop.classList.add('open');btn.setAttribute('aria-expanded','true');document.body.classList.add('no-scroll');};
+    var close=function(){panel.classList.remove('open');backdrop.classList.remove('open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('no-scroll');btn.focus();};
+    btn.addEventListener('click',function(){panel.classList.contains('open')?close():open();});
+    closeBtn.addEventListener('click',close);
+    backdrop.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')) close();});
+    panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  }
+})();
+
 (function(){
   var STORAGE_KEY='ne-lang';
   var meta={
