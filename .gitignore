@@ -1,0 +1,16 @@
+# Documentos fuente (marca, copy, paquete de ingreso) — solo locales
+*.pdf
+*.docx
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Claude Code: settings locales por proyecto (no compartir)
+.claude/
