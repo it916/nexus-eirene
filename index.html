@@ -17,7 +17,8 @@
 <meta property="og:url" content="https://nexuseirene.com/">
 <meta property="og:title" content="Nexus Eirene · Bienestar emocional bilingüe en Florida">
 <meta property="og:description" content="Sesiones semanales, comunidad bilingüe y materiales para reconectarte contigo mismo. Programa no médico en Florida. Inscripciones abiertas.">
-<meta property="og:image" content="https://nexuseirene.com/og-image.svg">
+<meta property="og:image" content="https://nexuseirene.com/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nexus Eirene Wellness Hub — Conéctate contigo mismo">
@@ -25,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nexus Eirene · Bienestar emocional bilingüe en Florida">
 <meta name="twitter:description" content="Sesiones semanales, comunidad bilingüe y materiales para reconectarte contigo mismo. Programa no médico en Florida.">
-<meta name="twitter:image" content="https://nexuseirene.com/og-image.svg">
+<meta name="twitter:image" content="https://nexuseirene.com/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +44,7 @@
       "legalName": "Nexus Eirene Wellness Hub LLC",
       "url": "https://nexuseirene.com",
       "logo": "https://nexuseirene.com/favicon.svg",
-      "image": "https://nexuseirene.com/og-image.svg",
+      "image": "https://nexuseirene.com/og-image.png",
       "description": "Programa de bienestar emocional bilingüe (no médico) en Florida. Sesiones semanales, comunidad y materiales para reconectarte contigo mismo.",
       "founder": {
         "@type": "Person",
@@ -176,7 +177,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(245,242,236,.88);bac
 .brand img{height:34px;width:auto}
 .brand .bt{font-family:var(--serif);font-size:17px;color:var(--gold-deep);letter-spacing:.06em;line-height:1}
 .navlinks{display:flex;gap:26px;align-items:center}
-.navlinks a:not(.btn){font-size:13px;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.navlinks a:not(.btn){white-space:nowrap;font-size:13px;font-weight:500;color:var(--ink);letter-spacing:.02em}
 .navlinks a:not(.btn):hover{color:var(--teal-deep)}
 .btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.02em;padding:11px 22px;border-radius:6px;cursor:pointer;border:1.5px solid transparent;transition:transform .15s ease,background .2s ease}
 .btn:hover{transform:translateY(-1px)}
@@ -202,7 +203,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(245,242,236,.88);bac
 .mobile-panel-close:hover{background:rgba(28,43,58,.06);color:var(--ink)}
 .mobile-panel-close svg{width:20px;height:20px}
 body.no-scroll{overflow:hidden}
-@media(max-width:860px){.hamburger{display:inline-flex}}
+@media(max-width:1080px){.hamburger{display:inline-flex}.navlinks{display:none}}
 
 /* HERO */
 .hero{text-align:center;padding:72px 24px 60px;position:relative;overflow:hidden}
@@ -248,8 +249,7 @@ section{padding:64px 0}
 .team .eyebrow{color:#8fe0cf}
 .team h2.sec-title{color:#fff}
 .team-grid{display:grid;grid-template-columns:360px 1fr;gap:36px;align-items:start;margin-top:8px}
-.tcard{background:#22344a;border:1px solid #2f4considerable;border-radius:14px;padding:26px;text-align:center}
-.tcard{border:1px solid #2f4660}
+.tcard{background:#22344a;border:1px solid #2f4660;border-radius:14px;padding:26px;text-align:center}
 .photo{width:100%;aspect-ratio:4/5;border-radius:12px;margin:0 auto 18px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--cream);overflow:hidden}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
 .tcard .name{font-family:var(--serif);font-size:22px;color:#fff;letter-spacing:.02em}
@@ -377,7 +377,6 @@ footer .ftag{color:var(--teal-deep);font-size:13px;letter-spacing:.1em;text-tran
 footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
 
 @media(max-width:860px){
-  .navlinks{display:none}
   .mv,.vgrid,.legal-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr}
   .plans-grid{grid-template-columns:1fr}
@@ -401,6 +400,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <a href="#equipo"><span class="es">Equipo</span><span class="en">Team</span></a>
       <a href="#planes"><span class="es">Planes</span><span class="en">Plans</span></a>
       <a href="#como"><span class="es">Cómo funciona</span><span class="en">How it works</span></a>
+      <a href="#faq"><span class="es">Preguntas</span><span class="en">FAQ</span></a>
       <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
       <a class="btn btn-primary nav-cta" href="#inscripcion"><span class="es">Inscríbete</span><span class="en">Enroll</span></a>
     </nav>
@@ -727,10 +727,10 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
           </div>
           <div>
             <label for="f-idioma"><span class="es">Idioma preferido</span><span class="en">Preferred language</span> <span class="req">*</span></label>
-            <select id="f-idioma" name="idioma" required>
+            <select id="f-idioma" name="idioma" required data-bilingual>
               <option value="Español">Español</option>
               <option value="English">English</option>
-              <option value="Ambos"><span class="es">Ambos</span><span class="en">Both</span></option>
+              <option value="Ambos" data-es="Ambos" data-en="Both">Ambos</option>
             </select>
           </div>
           <div>
@@ -805,7 +805,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
     </p>
     <p class="legalmini">
       <span class="es">Nexus Eirene Wellness Hub LLC · Florida, Estados Unidos · Programa de bienestar no médico</span><span class="en">Nexus Eirene Wellness Hub LLC · Florida, USA · Non-medical wellness program</span><br>
-      <span class="es">© 2025 Todos los derechos reservados</span><span class="en">© 2025 All rights reserved</span>
+      <span class="es">© 2026 Todos los derechos reservados</span><span class="en">© 2026 All rights reserved</span>
     </p>
   </div>
 </footer>

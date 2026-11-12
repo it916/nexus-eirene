@@ -33,7 +33,8 @@ En caso de emergencia médica o de salud mental, llamar al **911** o al **988 (S
 ├── 404.html                ← página de error custom
 ├── gracias.html            ← Stripe success URL
 ├── favicon.svg             ← lotus dorado de la marca
-├── og-image.svg            ← 1200×630 para redes sociales
+├── og-image.png            ← 1200×630 para redes sociales
+├── og-image.svg            ← fuente editable del PNG
 ├── sunior-sanchez.jpg      ← retrato del fundador (40 KB)
 ├── nuestro-espacio.jpg     ← banner del espacio (520 KB, 16:9)
 ├── robots.txt              ← apunta al sitemap
@@ -92,4 +93,4 @@ Programa conforme a Florida Statutes Title XXXII y las regulaciones aplicables d
 
 ---
 
-© 2025 Nexus Eirene Wellness Hub LLC · Todos los derechos reservados
+© 2026 Nexus Eirene Wellness Hub LLC · Todos los derechos reservados

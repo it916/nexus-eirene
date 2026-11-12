@@ -17,7 +17,8 @@ Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bie
 - `sunior-sanchez.jpg` — retrato del fundador (40 KB, 720×877).
 - `nuestro-espacio.jpg` — banner del espacio (520 KB, 2048×1152, 16:9). Pasa por cache-bust `?v=N` en el src.
 - `favicon.svg` — lotus dorado de la marca.
-- `og-image.svg` — 1200×630 para Open Graph (Twitter, Facebook, LinkedIn).
+- `og-image.png` — 1200×630 para Open Graph (Twitter, Facebook, LinkedIn). Es la que referencian `og:image`/`twitter:image` y el JSON-LD.
+- `og-image.svg` — fuente editable de `og-image.png`. Los crawlers de OG no aceptan SVG, por eso se publica el PNG.
 - `robots.txt` + `sitemap.xml` — SEO, apuntan a las 3 páginas principales.
 
 **Documentos fuente (solo en local, en `.gitignore`):**
@@ -41,8 +42,8 @@ Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bie
   - `<title>` y `<meta name="description">` se actualizan dinámicamente desde el diccionario `meta` al inicio del bloque `<script>` de cada página. Si cambias el title de una página, edita ambas entradas.
 - **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#faq`, `#contacto`, `#inscripcion`. El panel móvil hamburguesa replica los mismos anchors. Si se renombra un `<section id="…">`, hay que actualizar **el nav desktop + el panel hamburguesa + cualquier `data-plan`/`data-stripe-link` que apunte ahí**.
 - **El estilo va inline en un bloque `<style>` por página.** Las cinco páginas (`index`, `privacidad`, `terminos`, `404`, `gracias`) tienen su propio bloque autosuficiente. Las cuatro páginas no-landing duplican un subconjunto del CSS de `index.html` (variables, tipografía, nav, footer, focus rings). No extraer a stylesheet compartido sin petición explícita. **Si cambias variables de marca o el toggle de idioma, actualizar las cinco páginas.**
-- **Meta tags están duplicados en cada página.** Cualquier cambio de canonical URL, `og:image`, title o description debe replicarse. `favicon.svg`, `og-image.svg`, `nuestro-espacio.jpg`, `sunior-sanchez.jpg` son archivos compartidos en root.
-- **`og-image.svg` usa fuentes del sistema** (Georgia/Helvetica) en vez de Cinzel/Montserrat porque los crawlers de OG no cargan webfonts. Funciona en Twitter, Facebook, LinkedIn, Slack, Discord; WhatsApp puede caer a fallback de solo texto.
+- **Meta tags están duplicados en cada página.** Cualquier cambio de canonical URL, `og:image`, title o description debe replicarse. `favicon.svg`, `og-image.png`, `nuestro-espacio.jpg`, `sunior-sanchez.jpg` son archivos compartidos en root.
+- **`og-image.svg` usa fuentes del sistema** (Georgia/Helvetica) en vez de Cinzel/Montserrat. Si se edita, **regenerar `og-image.png`** con Chrome headless: `chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=og-image.png og-image.svg`.
 - **El lotus inline en el divider** (entre hero y "Nosotros") es un SVG suelto dentro del HTML, no un archivo. Las mismas paths SVG aparecen también en `favicon.svg`, `og-image.svg`, `404.html`, `gracias.html` — si cambia el logo, actualizar en los cinco lugares.
 - **El copy legal/cumplimiento es estructural.** El encuadre como "programa de bienestar no médico", la aclaración de que no reemplaza atención clínica, la referencia al 911 y la línea de Florida Statutes Title XXXII son requisitos de posicionamiento del programa — no suavizarlos ni eliminarlos sin confirmación. Está repetido en hero, footer, aviso legal del index, checkbox de consentimiento del form, sección 2 de Términos y secciones 1+11 de Política.
 
@@ -112,7 +113,7 @@ Jerarquía sugerida por la guía: título serif 24–32 pt · subtítulo sans 50
 ## Características clave del sitio (lo que ya funciona)
 
 - **Toggle bilingüe ES/EN** en el nav, persistido en `localStorage` (clave `ne-lang`), auto-detect del navegador en primera visita. Todas las cinco páginas comparten la misma preferencia. Cambia `<title>`, `<meta description>`, opciones de `<select>` (vía `data-bilingual` + `data-es`/`data-en`), placeholders (`data-placeholder-es`/`-en`) y mensajes inline del form.
-- **Hamburger menu en móvil**: panel lateral slide-in desde la derecha + backdrop oscuro + body scroll-lock + cierre por click backdrop/X/link/Esc. Aparece a ≤860px en index, ≤760px en legales (mismos breakpoints donde colapsa `.navlinks`).
+- **Hamburger menu en móvil**: panel lateral slide-in desde la derecha + backdrop oscuro + body scroll-lock + cierre por click backdrop/X/link/Esc. Aparece a ≤1080px en index (el nav de escritorio tiene 6 links + CTA y no cabe por debajo de ese ancho), ≤760px en legales (mismos breakpoints donde colapsa `.navlinks`). El resto del layout de index colapsa a una columna en ≤860px.
 - **CTA flotante en móvil**: botón "Inscríbete" sticky bottom en ≤760px. `IntersectionObserver` lo oculta cuando el form (`#inscripcion`) entra en viewport.
 - **Formulario de inscripción**: envío vía `fetch` a Web3Forms, feedback inline (verde éxito / rojo error), honeypot anti-spam, pre-rellena el plan al venir de cards (`data-plan`).
 - **Skip-to-content link** + focus-visible rings turquesa (WCAG 2.4.7) en las cinco páginas.
