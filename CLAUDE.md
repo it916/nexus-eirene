@@ -21,6 +21,7 @@ Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bie
 - `og-image.png` — 1200×630 para Open Graph (Twitter, Facebook, LinkedIn). Es la que referencian `og:image`/`twitter:image` y el JSON-LD.
 - `og-image.svg` — fuente editable de `og-image.png`. Los crawlers de OG no aceptan SVG, por eso se publica el PNG.
 - `robots.txt` + `sitemap.xml` — SEO, apuntan a las 3 páginas principales.
+- `_config.yml` — config de Jekyll para GitHub Pages: excluye `CLAUDE.md` y `README.md` del sitio publicado (sin él se servían en `nexuseirene.com/CLAUDE.md`). El repo en GitHub sigue siendo público, así que no escribir aquí nada que no deba verse.
 
 **Documentos fuente (solo en local, en `.gitignore`):**
 
@@ -143,5 +144,3 @@ El formulario de inscripción tiene un segundo checkbox debajo del consentimient
 ## Precios y planes (editados con frecuencia)
 
 Tres planes viven en la sección `#planes`: Básica `$54.99/mes`, Premium `$109/mes` (marcado `feat` / "Más popular") y Corporativa `$209/empl./mes` (mínimo 5 empleados). Debajo hay una caja `.assist` de **Asistencia financiera y patrocinio comunitario** (sin precio; cobertura parcial o total vía organizaciones comunitarias y patrocinadores sin fines de lucro, sujeta a fondos de terceros). Al actualizar precios, modificar tanto el elemento `.price` como cualquier copy narrativo que cite la cifra.
-
-**No mencionar PrEP/PREP en ninguna parte del sitio** (plan, FAQ, formulario, términos, JSON-LD). Se retiró el 2026-11-17 a petición del usuario y no debe reintroducirse. Ojo: `Nexus_Eirene_Contenido_Web.docx` todavía lo menciona — no copiar ese copy.

@@ -1,0 +1,4 @@
+# GitHub Pages (Jekyll): documentación interna del repo que no debe publicarse en nexuseirene.com
+exclude:
+  - CLAUDE.md
+  - README.md
