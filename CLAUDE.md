@@ -14,6 +14,7 @@ Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bie
 - `privacidad.html`, `terminos.html` — páginas legales bilingües (cada una autosuficiente).
 - `404.html` — página de error custom (la sirve GitHub Pages para URLs inexistentes).
 - `gracias.html` — página de éxito tras Stripe checkout (Success URL).
+- `logo.png` — logo completo (lotus + wordmark, 110 KB, 800×407). Lo usan el nav y el `<h1>` del hero de `index.html`. **No volver a incrustarlo en base64** — antes estaba duplicado inline y pesaba 295 KB del HTML.
 - `sunior-sanchez.jpg` — retrato del fundador (40 KB, 720×877).
 - `nuestro-espacio.jpg` — banner del espacio (520 KB, 2048×1152, 16:9). Pasa por cache-bust `?v=N` en el src.
 - `favicon.svg` — lotus dorado de la marca.
