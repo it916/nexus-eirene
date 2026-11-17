@@ -43,6 +43,8 @@ Sitio de marketing para **Nexus Eirene Wellness Hub LLC** — un programa de bie
   - `<title>` y `<meta name="description">` se actualizan dinámicamente desde el diccionario `meta` al inicio del bloque `<script>` de cada página. Si cambias el title de una página, edita ambas entradas.
 - **Los `id` de sección son anclas de navegación.** El header sticky enlaza a `#nosotros`, `#equipo`, `#planes`, `#como`, `#faq`, `#contacto`, `#inscripcion`. El panel móvil hamburguesa replica los mismos anchors. Si se renombra un `<section id="…">`, hay que actualizar **el nav desktop + el panel hamburguesa + cualquier `data-plan`/`data-stripe-link` que apunte ahí**.
 - **El estilo va inline en un bloque `<style>` por página.** Las cinco páginas (`index`, `privacidad`, `terminos`, `404`, `gracias`) tienen su propio bloque autosuficiente. Las cuatro páginas no-landing duplican un subconjunto del CSS de `index.html` (variables, tipografía, nav, footer, focus rings). No extraer a stylesheet compartido sin petición explícita. **Si cambias variables de marca o el toggle de idioma, actualizar las cinco páginas.**
+  - `index.html` no tiene atributos `style="..."`: enlaces dorados dentro de texto usan `.ilink`, subtítulos bajo `h2.sec-title` usan `.sec-sub`, asteriscos de obligatorio usan `.req`. Los enlaces del footer toman su estilo de `footer .legalmini a`. Mantenerlo así en vez de añadir estilos inline.
+- **SVG decorativos llevan `aria-hidden="true"`** (lotus, iconos de contacto, WhatsApp, hamburguesa/cerrar — los botones ya tienen `aria-label`). Igual para cualquier emoji decorativo.
 - **Meta tags están duplicados en cada página.** Cualquier cambio de canonical URL, `og:image`, title o description debe replicarse. `favicon.svg`, `og-image.png`, `nuestro-espacio.jpg`, `sunior-sanchez.jpg` son archivos compartidos en root.
 - **`og-image.svg` usa fuentes del sistema** (Georgia/Helvetica) en vez de Cinzel/Montserrat. Si se edita, **regenerar `og-image.png`** con Chrome headless: `chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=og-image.png og-image.svg`.
 - **El lotus inline en el divider** (entre hero y "Nosotros") es un SVG suelto dentro del HTML, no un archivo. Las mismas paths SVG aparecen también en `favicon.svg`, `og-image.svg`, `404.html`, `gracias.html` — si cambia el logo, actualizar en los cinco lugares.
@@ -117,8 +119,8 @@ Jerarquía sugerida por la guía: título serif 24–32 pt · subtítulo sans 50
 - **Hamburger menu en móvil**: panel lateral slide-in desde la derecha + backdrop oscuro + body scroll-lock + cierre por click backdrop/X/link/Esc. Aparece a ≤1080px en index (el nav de escritorio tiene 6 links + CTA y no cabe por debajo de ese ancho), ≤760px en legales (mismos breakpoints donde colapsa `.navlinks`). El resto del layout de index colapsa a una columna en ≤860px.
 - **CTA flotante en móvil**: botón "Inscríbete" sticky bottom en ≤760px. `IntersectionObserver` lo oculta cuando el form (`#inscripcion`) entra en viewport.
 - **Formulario de inscripción**: envío vía `fetch` a Web3Forms, feedback inline (verde éxito / rojo error), honeypot anti-spam, pre-rellena el plan al venir de cards (`data-plan`).
-- **Skip-to-content link** + focus-visible rings turquesa (WCAG 2.4.7) en las cinco páginas.
-- **JSON-LD Schema.org** en `index.html` (`Organization` + `WebSite` + `FAQPage` con las 6 Q&A) y WebPage en las legales (`isPartOf` el WebSite).
+- **Skip-to-content link** en `index`, `privacidad` y `terminos` (`404` y `gracias` no tienen nav, no lo necesitan) + focus-visible rings turquesa (WCAG 2.4.7) en las cinco páginas.
+- **JSON-LD Schema.org** en `index.html` (`Organization` + `WebSite` + `FAQPage` con las 5 Q&A) y WebPage en las legales (`isPartOf` el WebSite).
 
 ## Stripe (preparación, no integración activa todavía)
 
@@ -130,7 +132,7 @@ Los botones de Básica y Premium en `#planes` tienen un atributo `data-stripe-li
 3. En `index.html`, pegar la URL de cada Payment Link en el `data-stripe-link=""` del botón correspondiente:
    - `<a ... data-plan="Básica" data-stripe-link="">` → pegar URL de Básica
    - `<a ... data-plan="Premium" data-stripe-link="">` → pegar URL de Premium
-4. **Corporativa** y **PREP** quedan en flujo de formulario (no Stripe directo) — Corporativa necesita consulta, PREP necesita verificación de elegibilidad.
+4. **Corporativa** queda en flujo de formulario (no Stripe directo) — necesita consulta.
 
 `gracias.html` ya existe como la página de éxito tras Stripe checkout. La Política de Privacidad menciona Stripe como procesador (sección 4) y los Términos en la sección 5 con link a `stripe.com/legal/consumer`.
 
@@ -140,4 +142,6 @@ El formulario de inscripción tiene un segundo checkbox debajo del consentimient
 
 ## Precios y planes (editados con frecuencia)
 
-Tres planes + una variante subsidiada viven en la sección `#planes`: Básica `$54.99/mes`, Premium `$109/mes` (marcado `feat` / "Más popular"), Corporativa `$209/empl./mes` (mínimo 5 empleados), y el plan PREP (100% de subsidio para participantes activos de PREP). Al actualizar precios, modificar tanto el elemento `.price` como cualquier copy narrativo que cite la cifra.
+Tres planes viven en la sección `#planes`: Básica `$54.99/mes`, Premium `$109/mes` (marcado `feat` / "Más popular") y Corporativa `$209/empl./mes` (mínimo 5 empleados). Debajo hay una caja `.assist` de **Asistencia financiera y patrocinio comunitario** (sin precio; cobertura parcial o total vía organizaciones comunitarias y patrocinadores sin fines de lucro, sujeta a fondos de terceros). Al actualizar precios, modificar tanto el elemento `.price` como cualquier copy narrativo que cite la cifra.
+
+**No mencionar PrEP/PREP en ninguna parte del sitio** (plan, FAQ, formulario, términos, JSON-LD). Se retiró el 2026-11-17 a petición del usuario y no debe reintroducirse. Ojo: `Nexus_Eirene_Contenido_Web.docx` todavía lo menciona — no copiar ese copy.

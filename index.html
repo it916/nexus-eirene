@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES">
+<meta property="og:locale" content="es_US">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="Nexus Eirene Wellness Hub">
 <meta property="og:url" content="https://nexuseirene.com/">
@@ -114,14 +114,6 @@
         },
         {
           "@type": "Question",
-          "name": "¿Cómo califico para el plan PREP subsidiado?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "El plan PREP está disponible para participantes activos del programa PREP (Pre-Exposure Prophylaxis). Si ya estás en PREP, puedes solicitar el 100% de subsidio mencionándolo en el formulario de inscripción o contactando directamente a tu coordinador de PREP. Validaremos elegibilidad con tu coordinador antes de activar el subsidio."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿En qué idioma se imparten las sesiones?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -155,6 +147,7 @@ body.lang-en .en{display:inline!important;color:inherit!important;font-style:nor
 .lang-toggle button.active{background:var(--teal-deep);color:#fff}
 .lang-toggle button:not(.active):hover{color:var(--ink)}
 a{color:inherit;text-decoration:none}
+.ilink{color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)}
 
 /* A11Y: focus visible + skip link */
 *:focus{outline:none}
@@ -227,6 +220,7 @@ body.no-scroll{overflow:hidden}
 /* SECTION shell */
 section{padding:64px 0}
 .sec-head{text-align:center;margin-bottom:40px}
+.sec-sub{max-width:680px;margin:6px auto 0;color:var(--topo);font-size:14.5px}
 
 /* WHO */
 .mv{display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -275,12 +269,9 @@ section{padding:64px 0}
 .plan li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:13px;border-radius:50%;background:rgba(64,161,147,.18)}
 .plan li::after{content:"✓";position:absolute;left:2.5px;top:1px;font-size:10px;color:var(--teal-deep);font-weight:700}
 .plan .btn{margin-top:18px;text-align:center}
-.prep{background:linear-gradient(120deg,#FAEEDA,#F6E3C9);border:1px solid #E9C589;border-radius:14px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
-.prep .ico{font-size:30px;line-height:1}
-.prep .pt{font-family:var(--serif);font-size:19px;color:#6b4310;font-weight:600}
-.prep .pp{font-weight:600;color:var(--amber);margin:2px 0 8px;font-size:15px}
-.prep p{font-size:13.5px;color:#5c4416;max-width:760px}
-.prep .en{display:block;margin-top:6px;font-size:12.5px}
+.assist{background:linear-gradient(120deg,#FAEEDA,#F6E3C9);border:1px solid #E9C589;border-radius:14px;padding:24px 28px}
+.assist .pt{font-family:var(--serif);font-size:19px;color:#6b4310;font-weight:600;margin-bottom:8px}
+.assist p{font-size:13.5px;color:#5c4416;max-width:760px}
 
 /* STEPS */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -352,7 +343,7 @@ section{padding:64px 0}
 .enroll form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
 .enroll .full{grid-column:1 / -1}
 .enroll label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);margin-bottom:6px}
-.enroll label .req{color:var(--gold-deep)}
+.enroll .req{color:var(--gold-deep)}
 .enroll input[type=text],.enroll input[type=email],.enroll input[type=tel],.enroll select,.enroll textarea{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--cream);border:1px solid var(--arena);border-radius:8px;padding:11px 12px;transition:border-color .15s ease,background .15s ease}
 .enroll input:focus,.enroll select:focus,.enroll textarea:focus{outline:none;border-color:var(--teal-deep);background:#fff}
 .enroll textarea{resize:vertical;min-height:90px;font-family:var(--sans)}
@@ -375,6 +366,8 @@ footer{padding:46px 0 40px;text-align:center}
 footer .fbrand{font-family:var(--serif);font-size:20px;color:var(--gold-deep);letter-spacing:.06em}
 footer .ftag{color:var(--teal-deep);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:6px 0 18px}
 footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
+footer .legalmini:not(:last-child){margin-bottom:14px}
+footer .legalmini a{color:var(--gold-deep);border-bottom:1px solid var(--arena)}
 
 @media(max-width:860px){
   .mv,.vgrid,.legal-grid{grid-template-columns:1fr}
@@ -409,7 +402,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
     <button class="hamburger" type="button" aria-label="Abrir menú · Open menu" aria-expanded="false" aria-controls="mobilePanel">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </header>
@@ -417,7 +410,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
 <div class="panel-backdrop" aria-hidden="true"></div>
 <nav class="mobile-panel" id="mobilePanel" aria-label="Menú móvil · Mobile menu">
   <button class="mobile-panel-close" type="button" aria-label="Cerrar menú · Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
   </button>
   <a href="#nosotros"><span class="es">Nosotros</span><span class="en">About</span></a>
   <a href="#equipo"><span class="es">Equipo</span><span class="en">Team</span></a>
@@ -450,7 +443,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
     </p>
   </section>
 
-  <div class="divider"><svg class="lotus" viewBox="0 0 64 40" fill="currentColor"><path d="M32 2c3 7 3 16 0 26-3-10-3-19 0-26z"/><path d="M30 30C22 26 15 24 6 26c6-7 14-9 23-6 0 4 .5 7 1 10z" opacity=".8"/><path d="M34 30c8-4 15-6 24-4-6-7-14-9-23-6 0 4-.5 7-1 10z" opacity=".8"/><path d="M28 31C22 23 18 17 16 9c8 3 13 9 14 17 0 2-1 4-2 5z" opacity=".6"/><path d="M36 31c6-8 10-14 12-22-8 3-13 9-14 17 0 2 1 4 2 5z" opacity=".6"/></svg></div>
+  <div class="divider"><svg aria-hidden="true" class="lotus" viewBox="0 0 64 40" fill="currentColor"><path d="M32 2c3 7 3 16 0 26-3-10-3-19 0-26z"/><path d="M30 30C22 26 15 24 6 26c6-7 14-9 23-6 0 4 .5 7 1 10z" opacity=".8"/><path d="M34 30c8-4 15-6 24-4-6-7-14-9-23-6 0 4-.5 7-1 10z" opacity=".8"/><path d="M28 31C22 23 18 17 16 9c8 3 13 9 14 17 0 2-1 4-2 5z" opacity=".6"/><path d="M36 31c6-8 10-14 12-22-8 3-13 9-14 17 0 2 1 4 2 5z" opacity=".6"/></svg></div>
 
   <section id="nosotros">
     <div class="wrap">
@@ -515,7 +508,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <div class="sec-head">
         <div class="eyebrow"><span class="es">Planes y precios</span><span class="en">Plans &amp; pricing</span></div>
         <h2 class="sec-title"><span class="es">Nuestros programas</span><span class="en">Our programs</span></h2>
-        <p style="max-width:680px;margin:6px auto 0;color:var(--topo);font-size:14.5px"><span class="es">Todos los planes incluyen sesiones semanales, comunidad privada y materiales exclusivos. La membresía es mensual y se renueva cada 30 días salvo cancelación.</span><span class="en">All plans include weekly sessions, private community, and exclusive materials. Monthly membership, auto-renews every 30 days unless cancelled.</span></p>
+        <p class="sec-sub"><span class="es">Todos los planes incluyen sesiones semanales, comunidad privada y materiales exclusivos. La membresía es mensual y se renueva cada 30 días salvo cancelación.</span><span class="en">All plans include weekly sessions, private community, and exclusive materials. Monthly membership, auto-renews every 30 days unless cancelled.</span></p>
       </div>
       <div class="plans-grid">
         <div class="plan">
@@ -559,13 +552,9 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
           <a class="btn btn-ghost" href="#inscripcion" data-plan="Corporativa"><span class="es">Consultar</span><span class="en">Inquire</span></a>
         </div>
       </div>
-      <div class="prep">
-        <div class="ico">💊</div>
-        <div>
-          <div class="pt"><span class="es">Plan PREP — Subsidiado</span><span class="en">PREP Plan — Subsidized</span></div>
-          <div class="pp"><span class="es">$54.99/mes — 100% subsidio solicitado</span><span class="en">$54.99/month — 100% subsidy requested</span></div>
-          <p><span class="es">Para participantes activos del programa PREP. Si eres participante activo, puedes acceder al plan completo con 100% de subsidio solicitado. Consulta elegibilidad con tu coordinador de PREP o contáctanos directamente.</span><span class="en">For active PREP participants. You may be eligible for a 100% subsidized membership. Contact us or your PREP coordinator to begin.</span></p>
-        </div>
+      <div class="assist">
+        <div class="pt"><span class="es">Asistencia financiera y patrocinio comunitario</span><span class="en">Financial Assistance &amp; Community Sponsorship</span></div>
+        <p><span class="es">Nexus Eirene puede colaborar con organizaciones comunitarias independientes y patrocinadores sin fines de lucro que podrían cubrir parcial o totalmente la cuota de personas elegibles que buscan apoyo de bienestar no clínico. La asistencia financiera está sujeta a la disponibilidad de fondos de terceros y a la aprobación del programa. Contáctanos para obtener más información.</span><span class="en">Nexus Eirene can collaborate with independent community organizations and non-profit sponsors that may provide partial or full fee coverage for eligible individuals seeking non-clinical wellness support. Financial assistance is subject to third-party funding availability and program approval. Contact us to learn more.</span></p>
       </div>
     </div>
   </section>
@@ -612,23 +601,15 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
           <summary><span class="es">¿Es confidencial lo que comparto en las sesiones?</span><span class="en">Is what I share in sessions confidential?</span></summary>
           <div class="faq-body">
             <p><span class="es">Sí. Todo lo que compartes con facilitadores y otros participantes es estrictamente confidencial. Los facilitadores y el personal están comprometidos por escrito a no divulgar lo que se conversa en sesiones, materiales o comunicaciones.</span><span class="en">Yes. Everything you share with facilitators and other participants is strictly confidential. Facilitators and staff are bound in writing not to disclose what is discussed in sessions, materials, or communications.</span></p>
-            <p><span class="es">La única excepción es si existe riesgo inminente para la vida o integridad de una persona, o si una autoridad legalmente competente lo exige por orden judicial válida. El detalle completo está en nuestra <a href="privacidad.html" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Política de Privacidad</a>.</span><span class="en">The only exception is if there is imminent risk to a person's life or integrity, or if a legally competent authority requires it through a valid court order. Full details are in our <a href="privacidad.html" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Privacy Policy</a>.</span></p>
+            <p><span class="es">La única excepción es si existe riesgo inminente para la vida o integridad de una persona, o si una autoridad legalmente competente lo exige por orden judicial válida. El detalle completo está en nuestra <a href="privacidad.html" class="ilink">Política de Privacidad</a>.</span><span class="en">The only exception is if there is imminent risk to a person's life or integrity, or if a legally competent authority requires it through a valid court order. Full details are in our <a href="privacidad.html" class="ilink">Privacy Policy</a>.</span></p>
           </div>
         </details>
 
         <details class="faq">
           <summary><span class="es">¿Puedo cambiar de plan o cancelar mi membresía cuando quiera?</span><span class="en">Can I change my plan or cancel my membership at any time?</span></summary>
           <div class="faq-body">
-            <p><span class="es">Sí. Puedes cambiar de plan en cualquier momento contactándonos a <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>. El cambio entra en vigor en el siguiente ciclo mensual.</span><span class="en">Yes. You can switch plans at any time by contacting us at <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>. The change takes effect in the next monthly cycle.</span></p>
+            <p><span class="es">Sí. Puedes cambiar de plan en cualquier momento contactándonos a <a href="mailto:info@nexuseirene.com" class="ilink">info@nexuseirene.com</a>. El cambio entra en vigor en el siguiente ciclo mensual.</span><span class="en">Yes. You can switch plans at any time by contacting us at <a href="mailto:info@nexuseirene.com" class="ilink">info@nexuseirene.com</a>. The change takes effect in the next monthly cycle.</span></p>
             <p><span class="es">Para cancelar, escríbenos o llámanos. La cancelación se aplica al final del ciclo mensual ya pagado, así que conservas el acceso hasta esa fecha. No hay penalización por cancelar.</span><span class="en">To cancel, write or call us. Cancellation applies at the end of the already-paid monthly cycle, so you keep access until that date. There is no cancellation penalty.</span></p>
-          </div>
-        </details>
-
-        <details class="faq">
-          <summary><span class="es">¿Cómo califico para el plan PREP subsidiado?</span><span class="en">How do I qualify for the subsidized PREP plan?</span></summary>
-          <div class="faq-body">
-            <p><span class="es">El plan PREP está disponible para participantes <strong>activos</strong> del programa PREP (Pre-Exposure Prophylaxis). Si ya estás en PREP, puedes solicitar el 100% de subsidio mencionándolo en el formulario de inscripción o contactando directamente a tu coordinador de PREP.</span><span class="en">The PREP plan is available to <strong>active</strong> participants of the PREP (Pre-Exposure Prophylaxis) program. If you are already in PREP, you can request the 100% subsidy by mentioning it on the enrollment form or by contacting your PREP coordinator directly.</span></p>
-            <p><span class="es">Validaremos elegibilidad con tu coordinador antes de activar el subsidio. Si tienes dudas, escríbenos a <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>.</span><span class="en">We will verify eligibility with your coordinator before activating the subsidy. If you have questions, email us at <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">info@nexuseirene.com</a>.</span></p>
           </div>
         </details>
 
@@ -648,23 +629,23 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <div class="sec-head">
         <div class="eyebrow"><span class="es">Contacto</span><span class="en">Get in touch</span></div>
         <h2 class="sec-title"><span class="es">Estamos para escucharte</span><span class="en">We're here to listen</span></h2>
-        <p style="max-width:560px;margin:6px auto 0;color:var(--topo);font-size:14.5px"><span class="es">Si tienes preguntas antes de inscribirte, hablemos.</span><span class="en">Have questions before enrolling? Let's talk.</span></p>
+        <p class="sec-sub"><span class="es">Si tienes preguntas antes de inscribirte, hablemos.</span><span class="en">Have questions before enrolling? Let's talk.</span></p>
       </div>
       <div class="contact-grid">
         <div class="cbox">
-          <div class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="cicon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div class="clabel"><span class="es">Teléfono</span><span class="en">Phone</span></div>
           <div class="cval"><a href="tel:+17869813006">(786) 981-3006</a></div>
           <div class="csub"><span class="es">Llama o escríbenos por WhatsApp</span><span class="en">Call or message us on WhatsApp</span></div>
         </div>
         <div class="cbox">
-          <div class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="cicon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div class="clabel">Email</div>
           <div class="cval"><a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a></div>
           <div class="csub"><span class="es">Para consultas generales</span><span class="en">For general inquiries</span></div>
         </div>
         <div class="cbox">
-          <div class="cicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+          <div class="cicon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
           <div class="clabel"><span class="es">Horario</span><span class="en">Hours</span></div>
           <div class="cval"><span class="es">Lun – Vie</span><span class="en">Mon – Fri</span></div>
           <div class="csub">10 AM – 6 PM ET</div>
@@ -672,7 +653,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       </div>
       <div class="contact-cta">
         <a class="wa-btn" href="https://wa.me/17869813006?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Nexus%20Eirene." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.47-.149-.669.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.47-.149-.669.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <span class="es">Escríbenos por WhatsApp</span><span class="en">Message us on WhatsApp</span>
         </a>
       </div>
@@ -705,7 +686,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
       <div class="enroll" id="inscripcion">
         <div class="fhead">
           <h3><span class="es">Formulario de inscripción</span><span class="en">Enrollment form</span></h3>
-          <p><span class="es">Los campos marcados con <span style="color:var(--gold-deep)">*</span> son obligatorios.</span><span class="en">Fields marked with <span style="color:var(--gold-deep)">*</span> are required.</span></p>
+          <p><span class="es">Los campos marcados con <span class="req">*</span> son obligatorios.</span><span class="en">Fields marked with <span class="req">*</span> are required.</span></p>
         </div>
         <form id="enrollForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" value="b7b50f4d-2f7b-4b02-b937-ba1ed0f644c1">
@@ -740,7 +721,6 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
               <option value="Básica" data-es="Básica ($54.99/mes)" data-en="Basic ($54.99/month)">Básica ($54.99/mes)</option>
               <option value="Premium" data-es="Premium ($109/mes)" data-en="Premium ($109/month)">Premium ($109/mes)</option>
               <option value="Corporativa" data-es="Corporativa ($209/empl./mes)" data-en="Corporate ($209/empl./month)">Corporativa ($209/empl./mes)</option>
-              <option value="PREP" data-es="PREP (100% subsidio solicitado)" data-en="PREP (100% subsidy requested)">PREP (100% subsidio solicitado)</option>
               <option value="No estoy seguro" data-es="No estoy seguro" data-en="Not sure yet">No estoy seguro</option>
             </select>
           </div>
@@ -760,7 +740,6 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
               <option value="Recomendación" data-es="Recomendación de un amigo" data-en="Referral from a friend">Recomendación de un amigo</option>
               <option value="Redes sociales" data-es="Redes sociales" data-en="Social media">Redes sociales</option>
               <option value="Búsqueda en internet" data-es="Búsqueda en internet" data-en="Internet search">Búsqueda en internet</option>
-              <option value="PREP coordinator" data-es="Coordinador PREP" data-en="PREP coordinator">Coordinador PREP</option>
               <option value="Otro" data-es="Otro" data-en="Other">Otro</option>
             </select>
           </div>
@@ -770,7 +749,7 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
           </div>
           <div class="full consent">
             <input id="f-consent" type="checkbox" name="consentimiento" value="Aceptado" required>
-            <label for="f-consent"><span class="es">He leído y acepto la <a href="privacidad.html" target="_blank" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Política de Privacidad</a>, los <a href="terminos.html" target="_blank" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Términos y Condiciones</a> y el aviso legal: Nexus Eirene es un programa de bienestar <strong>no médico</strong> que no diagnostica, trata enfermedades ni prescribe medicamentos. Acepto que un coordinador me contacte para completar mi inscripción.</span><span class="en">I have read and accept the <a href="privacidad.html" target="_blank" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Privacy Policy</a>, the <a href="terminos.html" target="_blank" style="color:var(--gold-deep);border-bottom:1px solid var(--gold-deep)">Terms and Conditions</a>, and the legal notice: Nexus Eirene is a <strong>non-medical</strong> wellness program that does not diagnose, treat illness, or prescribe medication. I agree to be contacted by a coordinator to complete my enrollment.</span></label>
+            <label for="f-consent"><span class="es">He leído y acepto la <a href="privacidad.html" target="_blank" class="ilink">Política de Privacidad</a>, los <a href="terminos.html" target="_blank" class="ilink">Términos y Condiciones</a> y el aviso legal: Nexus Eirene es un programa de bienestar <strong>no médico</strong> que no diagnostica, trata enfermedades ni prescribe medicamentos. Acepto que un coordinador me contacte para completar mi inscripción.</span><span class="en">I have read and accept the <a href="privacidad.html" target="_blank" class="ilink">Privacy Policy</a>, the <a href="terminos.html" target="_blank" class="ilink">Terms and Conditions</a>, and the legal notice: Nexus Eirene is a <strong>non-medical</strong> wellness program that does not diagnose, treat illness, or prescribe medication. I agree to be contacted by a coordinator to complete my enrollment.</span></label>
           </div>
           <div class="full consent">
             <input id="f-marketing" type="checkbox" name="marketing_consent" value="Aceptado">
@@ -791,17 +770,17 @@ footer .legalmini{font-size:12px;color:var(--topo);line-height:1.7}
   <div class="wrap">
     <div class="fbrand">Nexus Eirene</div>
     <div class="ftag"><span class="es">Conéctate contigo mismo</span><span class="en">Find your calm</span></div>
-    <p class="legalmini" style="margin-bottom:14px">
-      <a href="tel:+17869813006" style="color:var(--gold-deep);border-bottom:1px solid var(--arena)">(786) 981-3006</a>
+    <p class="legalmini">
+      <a href="tel:+17869813006">(786) 981-3006</a>
       &nbsp;·&nbsp;
-      <a href="mailto:info@nexuseirene.com" style="color:var(--gold-deep);border-bottom:1px solid var(--arena)">info@nexuseirene.com</a>
+      <a href="mailto:info@nexuseirene.com">info@nexuseirene.com</a>
       &nbsp;·&nbsp;
       <span class="es">Lun – Vie, 10 AM – 6 PM ET</span><span class="en">Mon – Fri, 10 AM – 6 PM ET</span>
     </p>
-    <p class="legalmini" style="margin-bottom:14px">
-      <a href="privacidad.html" style="color:var(--gold-deep);border-bottom:1px solid var(--arena)"><span class="es">Política de Privacidad</span><span class="en">Privacy Policy</span></a>
+    <p class="legalmini">
+      <a href="privacidad.html"><span class="es">Política de Privacidad</span><span class="en">Privacy Policy</span></a>
       &nbsp;·&nbsp;
-      <a href="terminos.html" style="color:var(--gold-deep);border-bottom:1px solid var(--arena)"><span class="es">Términos y Condiciones</span><span class="en">Terms and Conditions</span></a>
+      <a href="terminos.html"><span class="es">Términos y Condiciones</span><span class="en">Terms and Conditions</span></a>
     </p>
     <p class="legalmini">
       <span class="es">Nexus Eirene Wellness Hub LLC · Florida, Estados Unidos · Programa de bienestar no médico</span><span class="en">Nexus Eirene Wellness Hub LLC · Florida, USA · Non-medical wellness program</span><br>
