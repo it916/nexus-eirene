@@ -111,7 +111,7 @@ Jerarquía sugerida por la guía: título serif 24–32 pt · subtítulo sans 50
 | **GitHub Pages** | Hosting estático | Push a `main` → deploy automático. Dominio custom `nexuseirene.com` vía CNAME en root. |
 | **Cloudflare → Squarespace** | DNS autoritativo | NS legacy `ns-cloud-*.googledomains.com` apuntan a Squarespace (no a Google Cloud DNS). Los registros A se editan en Squarespace, no en Google. Ver memoria `reference_dns_topology` para detalle. |
 | **Web3Forms** | Procesa el envío del form de inscripción a `operations@nexuseirene.com` | Access key `b7b50f4d-2f7b-4b02-b937-ba1ed0f644c1` está en el HTML — es **pública por diseño** (identifica destinatario, no autentica), seguro versionarla. NO usar `redirect=false` como hidden field, rompe el parser (debe omitirse para que Web3Forms devuelva JSON). |
-| **Google Workspace** | Correo `@nexuseirene.com` | `info@`, `operations@`, etc. MX records ya configurados. |
+| **Google Workspace** | Correo `@nexuseirene.com` | `info@`, `operations@`, etc. MX records ya configurados. El único correo publicado en el sitio es `operations@` (ver "Datos de contacto públicos"). |
 | **Mailgun** | Correo transaccional desde `mail.nexuseirene.com` | MX + DKIM ya configurados en DNS. |
 
 ## Características clave del sitio (lo que ya funciona)
@@ -140,6 +140,23 @@ Los botones de Básica y Premium en `#planes` tienen un atributo `data-stripe-li
 ## Consentimiento de marketing (TCPA)
 
 El formulario de inscripción tiene un segundo checkbox debajo del consentimiento legal: `name="marketing_consent"`, no es `required`. Si el usuario lo marca, Web3Forms incluye "Aceptado" en el campo `marketing_consent` del email enviado a `operations@nexuseirene.com`. El texto cumple con TCPA: opt-in expreso, no marcado por defecto, frecuencia, método de opt-out (STOP / unsubscribe link), "message and data rates may apply", y nota de "no es condición para inscribirse".
+
+## Datos de contacto públicos
+
+El sitio usa **un único correo y un único teléfono** en todas partes:
+
+- Correo: `operations@nexuseirene.com` — no volver a publicar `info@` (sigue existiendo en Workspace, pero no se muestra).
+- Teléfono y WhatsApp (mismo número): `(786) 702-6734` · `tel:+17867026734` · `wa.me/17867026734` · JSON-LD `+1-786-702-6734`.
+
+Si cambian, actualizar **todas** estas apariciones (buscar el número viejo en sus cuatro formatos):
+
+- `index.html` — JSON-LD `contactPoint` (telephone + email), respuesta del FAQ de cambio de plan (en el JSON-LD y en el HTML), sección `#contacto` (teléfono, email, botón WhatsApp), footer, y mensaje de error del form en el JS.
+- `gracias.html` — párrafo "¿Preguntas?".
+- `privacidad.html` — secciones 1, 6 y 12.
+- `terminos.html` — secciones 6, 15 (SMS: STOP/HELP) y 16.
+- `README.md` — sección Contacto.
+
+Los datos de contacto de la sección 15 de Términos deben coincidir con lo registrado en la plataforma de SMS (A2P 10DLC) y con su respuesta automática a HELP.
 
 ## Precios y planes (editados con frecuencia)
 
