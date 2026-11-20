@@ -87,8 +87,8 @@ Programa conforme a Florida Statutes Title XXXII y las regulaciones aplicables d
 
 ## Contacto
 
-- Email: [info@nexuseirene.com](mailto:info@nexuseirene.com)
-- Teléfono · WhatsApp: [(786) 981-3006](tel:+17869813006)
+- Email: [operations@nexuseirene.com](mailto:operations@nexuseirene.com)
+- Teléfono · WhatsApp: [(786) 702-6734](tel:+17867026734)
 - Horario: Lun – Vie, 10 AM – 6 PM ET
 
 ---
